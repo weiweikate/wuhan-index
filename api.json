@@ -1,0 +1,2542 @@
+[
+  {
+    "index": 0,
+    "name": "admin用户接口",
+    "desc": null,
+    "add_time": 1572401033,
+    "up_time": 1572401033,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/user/login",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34254,
+        "method": "POST",
+        "title": "admin管理员登录",
+        "path": "/admin/user/login",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5db8fa673ae2df0d305c2b3f",
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "required": "1",
+            "_id": "5db8fa673ae2df0d305c2b3e",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\"},\"data\":{\"type\":\"object\",\"properties\":{\"adminToken\":{\"type\":\"string\",\"example\":\"fgregretge\",\"description\":\"授权token\"},\"expiresIn\":{\"type\":\"integer\",\"format\":\"int32\",\"example\":432432,\"description\":\"授权token有效期，暂定30天，单位秒\"}},\"title\":\"AdminToken\",\"$$ref\":\"#/definitions/AdminToken\"},\"message\":{\"type\":\"string\"}},\"title\":\"Response«AdminToken»\",\"$$ref\":\"#/definitions/Response«AdminToken»\"}",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"loginName\":{\"type\":\"string\",\"example\":342,\"description\":\"登录名\"},\"password\":{\"type\":\"string\",\"example\":\"00001\",\"description\":\"登录密码\"}},\"title\":\"AdminLoginParamVO\",\"$$ref\":\"#/definitions/AdminLoginParamVO\"}",
+        "project_id": 174,
+        "catid": 8865,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572403815,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      },
+      {
+        "query_path": {
+          "path": "/admin/user/detail",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34236,
+        "method": "GET",
+        "title": "会员详情",
+        "path": "/admin/user/detail",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ad5",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ad6",
+            "name": "userCode",
+            "desc": "userCode"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"customerNum\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 1234,\n          \"description\": \"客户数量\"\n        },\n        \"headImg\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"用户头像\"\n        },\n        \"lastLoginTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"example\": \"fgregretge\",\n          \"description\": \"最后一次登录时间\"\n        },\n        \"level\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": \"fgregretge\",\n          \"description\": \"会员等级1专家 2股东 3分公司\"\n        },\n        \"nickname\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"用户昵称\"\n        },\n        \"openid\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"微信openid\"\n        },\n        \"phone\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"手机号\"\n        },\n        \"regTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"example\": \"fgregretge\",\n          \"description\": \"注册时间\"\n        },\n        \"userBrandList\": {\n          \"type\": \"array\",\n          \"description\": \"授权品牌\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"brandCode\": {\n                \"type\": \"string\",\n                \"example\": \"00001\",\n                \"description\": \"品牌ID\"\n              },\n              \"brandName\": {\n                \"type\": \"string\",\n                \"example\": \"XXX品牌名\",\n                \"description\": \"授权品牌\"\n              },\n              \"userAuthCode\": {\n                \"type\": \"string\",\n                \"example\": \"00001\",\n                \"description\": \"授权ID\"\n              }\n            },\n            \"title\": \"UserBrand\",\n            \"$$ref\": \"#/definitions/UserBrand\"\n          }\n        },\n        \"userCode\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"uc用户code\"\n        },\n        \"userPromotionList\": {\n          \"type\": \"array\",\n          \"description\": \"晋升记录\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"upLevel\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"example\": 1,\n                \"description\": \"用户晋升等级1专家 2股东 3分公司\"\n              },\n              \"upTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"example\": 1,\n                \"description\": \"晋升时间\"\n              }\n            },\n            \"title\": \"UserPromotion\",\n            \"$$ref\": \"#/definitions/UserPromotion\"\n          }\n        },\n        \"userRelationList\": {\n          \"type\": \"array\",\n          \"description\": \"授权信息\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"level\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"example\": 1,\n                \"description\": \"用户层级关系 1专家 2股东 3专家\"\n              },\n              \"realName\": {\n                \"type\": \"string\",\n                \"example\": 1,\n                \"description\": \"用户名字\"\n              },\n              \"userCode\": {\n                \"type\": \"string\",\n                \"example\": 1,\n                \"description\": \"用户ID\"\n              },\n              \"userRelation\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"example\": 1,\n                \"description\": \"用户层级关系 1专家 2股东 3上级 4邀请人\"\n              }\n            },\n            \"title\": \"UserRelation\",\n            \"$$ref\": \"#/definitions/UserRelation\"\n          }\n        },\n        \"wechatNickname\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"绑定的微信昵称\"\n        }\n      },\n      \"title\": \"UserDetailResultVO\",\n      \"$$ref\": \"#/definitions/UserDetailResultVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«UserDetailResultVO»\",\n  \"$$ref\": \"#/definitions/Response«UserDetailResultVO»\"\n}",
+        "project_id": 174,
+        "catid": 8865,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572401057,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/user/{type}/update",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34260,
+        "method": "POST",
+        "title": "修改会员信息",
+        "path": "/admin/user/{type}/update",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2ada",
+            "name": "type",
+            "desc": "type"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2adb",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«Void»\",\n  \"$$ref\": \"#/definitions/Response«Void»\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"fatherCode\": {\n      \"type\": \"string\",\n      \"description\": \"上级ID\"\n    },\n    \"headImg\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"用户头像\"\n    },\n    \"level\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"example\": \"fgregretge\",\n      \"description\": \"会员等级1专家 2股东 3分公司\"\n    },\n    \"nickname\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"用户昵称\"\n    },\n    \"phone\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"手机号\"\n    },\n    \"status\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"example\": 1,\n      \"description\": \"状态:0注销 1可用 2已停用\"\n    },\n    \"userBrandParamVOList\": {\n      \"type\": \"array\",\n      \"example\": \"fgregretge\",\n      \"description\": \"授权品牌\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"brandCode\": {\n            \"type\": \"string\",\n            \"example\": \"00001\",\n            \"description\": \"品牌ID\"\n          },\n          \"brandName\": {\n            \"type\": \"string\",\n            \"example\": \"XXX品牌名\",\n            \"description\": \"授权品牌\"\n          },\n          \"operatorType\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 1,\n            \"description\": \"操作类型，0 删除 1添加\"\n          },\n          \"status\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 1,\n            \"description\": \"授权状态 0正常 1停用 2已过期\"\n          }\n        },\n        \"title\": \"UserBrandParamVO\",\n        \"$$ref\": \"#/definitions/UserBrandParamVO\"\n      }\n    },\n    \"userCode\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"uc用户code\"\n    }\n  },\n  \"title\": \"UpdateUserDetailParamVO\",\n  \"$$ref\": \"#/definitions/UpdateUserDetailParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8865,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572401069,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/user/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34248,
+        "method": "POST",
+        "title": "分页查看会员列表",
+        "path": "/admin/user/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5db9066d3ae2df0d305c2b43",
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "required": "1",
+            "_id": "5db9066d3ae2df0d305c2b42",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\"},\"data\":{\"type\":\"object\",\"properties\":{\"current\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"当前页\"},\"pages\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"总页数\"},\"records\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"level\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"用户等级1专家 2股东 3分公司 默认为专家\"},\"nickname\":{\"type\":\"string\",\"description\":\"用户昵称\"},\"sgUserCode\":{\"type\":\"string\",\"description\":\"关联的秀购用户code\"},\"status\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"状态:0注销 1可用 2已停用\"},\"userCode\":{\"type\":\"string\",\"description\":\"uc用户code\"}},\"title\":\"UserInfoDTO\",\"$$ref\":\"#/definitions/UserInfoDTO\"}},\"size\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"每页显示条数，默认 20\"},\"total\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"总数\"}},\"title\":\"PageDTO«UserInfoDTO»\",\"$$ref\":\"#/definitions/PageDTO«UserInfoDTO»\"},\"message\":{\"type\":\"string\"}},\"title\":\"Response«PageDTO«UserInfoDTO»»\",\"$$ref\":\"#/definitions/Response«PageDTO«UserInfoDTO»»\"}",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"level\":{\"type\":\"integer\",\"format\":\"int32\",\"example\":1,\"description\":\"用户等级1专家 2股东 3分公司\"},\"nickname\":{\"type\":\"string\",\"example\":\"fgregretge\",\"description\":\"用户昵称\"},\"page\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"默认返回20条，最多支持500条\"},\"phone\":{\"type\":\"string\",\"example\":\"fgregretge\",\"description\":\"手机号\"},\"size\":{\"type\":\"integer\",\"format\":\"int32\"},\"status\":{\"type\":\"integer\",\"format\":\"int32\",\"example\":1,\"description\":\"状态:0注销 1可用 2已停用\"},\"userCode\":{\"type\":\"string\",\"example\":\"fgregretge\",\"description\":\"uc用户code\"}},\"title\":\"UserListParamVO\",\"$$ref\":\"#/definitions/UserListParamVO\"}",
+        "project_id": 174,
+        "catid": 8865,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572406893,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      },
+      {
+        "query_path": {
+          "path": "/admin/user/brands",
+          "params": []
+        },
+        "edit_uid": 470,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34548,
+        "method": "GET",
+        "catid": 8865,
+        "title": "品牌列表",
+        "path": "/admin/user/brands",
+        "project_id": 174,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 470,
+        "add_time": 1572427486,
+        "up_time": 1572427486,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/user/customers",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34230,
+        "method": "GET",
+        "title": "客户列表",
+        "path": "/admin/user/customers",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ad3",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ad4",
+            "name": "userCode",
+            "desc": "userCode"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"headImg\": {\n            \"type\": \"string\",\n            \"example\": \"fgregretge\",\n            \"description\": \"用户头像\"\n          },\n          \"level\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 1,\n            \"description\": \"用户等级1专家 2股东 3分公司\"\n          },\n          \"nickname\": {\n            \"type\": \"string\",\n            \"example\": \"fgregretge\",\n            \"description\": \"用户昵称\"\n          },\n          \"phone\": {\n            \"type\": \"string\",\n            \"example\": \"fgregretge\",\n            \"description\": \"手机号\"\n          },\n          \"userCode\": {\n            \"type\": \"string\",\n            \"example\": \"fgregretge\",\n            \"description\": \"uc用户code\"\n          },\n          \"wechatNickname\": {\n            \"type\": \"string\",\n            \"example\": \"fgregretge\",\n            \"description\": \"绑定的微信昵称\"\n          }\n        },\n        \"title\": \"CustomerListResultVO\",\n        \"$$ref\": \"#/definitions/CustomerListResultVO\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«CustomerListResultVO»»\",\n  \"$$ref\": \"#/definitions/Response«List«CustomerListResultVO»»\"\n}",
+        "project_id": 174,
+        "catid": 8865,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572401054,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/user/levels",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34242,
+        "method": "GET",
+        "title": "用户层级列表",
+        "path": "/admin/user/levels",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ad7",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"level\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 1,\n            \"description\": \"用户等级1专家 2股东 3分公司\"\n          },\n          \"levelCode\": {\n            \"type\": \"string\",\n            \"example\": 1,\n            \"description\": \"等级编码\"\n          },\n          \"levelName\": {\n            \"type\": \"string\",\n            \"example\": \"专家\",\n            \"description\": \"等级名称\"\n          },\n          \"remark\": {\n            \"type\": \"string\",\n            \"description\": \"备注说明\"\n          }\n        },\n        \"title\": \"UserLevelVO\",\n        \"$$ref\": \"#/definitions/UserLevelVO\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«UserLevelVO»»\",\n  \"$$ref\": \"#/definitions/Response«List«UserLevelVO»»\"\n}",
+        "project_id": 174,
+        "catid": 8865,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572401061,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "name": "Admin后台订单管理",
+    "desc": "Order Admin Controller",
+    "add_time": 1572400802,
+    "up_time": 1572400802,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/order/batchPush",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34176,
+        "method": "POST",
+        "title": "推送仓库",
+        "path": "/admin/order/batchPush",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2aba",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"codes\": {\n      \"type\": \"array\",\n      \"description\": \"订单codeList\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"title\": \"PushOrderParamVO\",\n  \"$$ref\": \"#/definitions/PushOrderParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8781,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400803,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/order/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34194,
+        "method": "GET",
+        "title": "订单列表",
+        "desc": "订单列表",
+        "path": "/admin/order/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2abe",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac6",
+            "name": "beginTime",
+            "desc": "开始时间"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac5",
+            "name": "endTime",
+            "desc": "结束时间"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac4",
+            "name": "noticeStatus",
+            "desc": "订单状态"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac3",
+            "name": "orderUserCode",
+            "desc": "用户账户"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ac2",
+            "name": "page",
+            "desc": "当前页码"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ac1",
+            "name": "pageSize",
+            "desc": "每页数量"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac0",
+            "name": "receiver",
+            "desc": "收货人姓名"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2abf",
+            "name": "receiverPhone",
+            "desc": "收货人电话号码"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"address\": {\n                \"type\": \"string\",\n                \"description\": \"详细地址\"\n              },\n              \"area\": {\n                \"type\": \"string\",\n                \"description\": \"区\"\n              },\n              \"auditTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"审核时间\"\n              },\n              \"cancelTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"取消时间\"\n              },\n              \"city\": {\n                \"type\": \"string\",\n                \"description\": \"市\"\n              },\n              \"closeTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"关闭时间\"\n              },\n              \"createTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"创建时间/下单时间\"\n              },\n              \"deliveryTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"发货时间\"\n              },\n              \"finishTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"完成时间\"\n              },\n              \"orderDetails\": {\n                \"type\": \"array\",\n                \"description\": \"订单明细\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"barCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"条形码\"\n                    },\n                    \"packages\": {\n                      \"type\": \"array\",\n                      \"description\": \"物流包裹\",\n                      \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"companyName\": {\n                            \"type\": \"string\",\n                            \"description\": \"物流公司\"\n                          },\n                          \"logisticsNo\": {\n                            \"type\": \"string\",\n                            \"description\": \"物流单号\"\n                          },\n                          \"quantity\": {\n                            \"type\": \"integer\",\n                            \"format\": \"int32\",\n                            \"description\": \"商品数量\"\n                          }\n                        },\n                        \"title\": \"PackageResponseVO\",\n                        \"$$ref\": \"#/definitions/PackageResponseVO\"\n                      }\n                    },\n                    \"productName\": {\n                      \"type\": \"string\",\n                      \"description\": \"商品名称\"\n                    },\n                    \"quantity\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"发货数量\"\n                    },\n                    \"skuCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"sku编码\"\n                    },\n                    \"skuImgUrl\": {\n                      \"type\": \"string\",\n                      \"description\": \"商品图片地址\"\n                    },\n                    \"skuName\": {\n                      \"type\": \"string\",\n                      \"description\": \"skuname（商品属性）\"\n                    },\n                    \"type\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"商品类型：1-普通商品、2-推广商品\"\n                    }\n                  },\n                  \"title\": \"OrderDetailResponseVO\",\n                  \"$$ref\": \"#/definitions/OrderDetailResponseVO\"\n                }\n              },\n              \"orderNo\": {\n                \"type\": \"string\",\n                \"description\": \"订单号\"\n              },\n              \"orderStatus\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"订单状态，1-待处理，2-待收货 ，3-已完成，4-已关闭\"\n              },\n              \"orderType\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"订单类型：1-普通订单、2-升级订单\"\n              },\n              \"orderUserCode\": {\n                \"type\": \"string\",\n                \"description\": \"下单会员号\"\n              },\n              \"orderUserHead\": {\n                \"type\": \"string\",\n                \"description\": \"下单会员头像\"\n              },\n              \"orderUserName\": {\n                \"type\": \"string\",\n                \"description\": \"升级人昵称\"\n              },\n              \"promotionLevel\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"晋升等级；1-专家升级股东\"\n              },\n              \"province\": {\n                \"type\": \"string\",\n                \"description\": \"省\"\n              },\n              \"pushTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"推送时间\"\n              },\n              \"receiver\": {\n                \"type\": \"string\",\n                \"description\": \"收件人\"\n              },\n              \"receiverPhone\": {\n                \"type\": \"string\",\n                \"description\": \"收件人联系电话\"\n              },\n              \"street\": {\n                \"type\": \"string\",\n                \"description\": \"街道\"\n              },\n              \"upgradeUserCode\": {\n                \"type\": \"string\",\n                \"description\": \"升级人会员号\"\n              },\n              \"upgradeUserHead\": {\n                \"type\": \"string\",\n                \"description\": \"升级人头像\"\n              },\n              \"upgradeUserName\": {\n                \"type\": \"string\",\n                \"description\": \"升级人昵称\"\n              },\n              \"userRemarks\": {\n                \"type\": \"string\",\n                \"description\": \"用户备注\"\n              }\n            },\n            \"title\": \"OrderResponseVO\",\n            \"$$ref\": \"#/definitions/OrderResponseVO\"\n          }\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        }\n      },\n      \"title\": \"PageDTO«OrderResponseVO»\",\n      \"$$ref\": \"#/definitions/PageDTO«OrderResponseVO»\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«PageDTO«OrderResponseVO»»\",\n  \"$$ref\": \"#/definitions/Response«PageDTO«OrderResponseVO»»\"\n}",
+        "project_id": 174,
+        "catid": 8781,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400803,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/order/get/{orderCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34188,
+        "method": "GET",
+        "title": "订单详情",
+        "desc": "订单详情",
+        "path": "/admin/order/get/{orderCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea33ae2df0d305c2abc",
+            "name": "orderCode",
+            "desc": "订单编号"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2abd",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"address\": {\n          \"type\": \"string\",\n          \"description\": \"详细地址\"\n        },\n        \"area\": {\n          \"type\": \"string\",\n          \"description\": \"区\"\n        },\n        \"auditTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"审核时间\"\n        },\n        \"cancelTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"取消时间\"\n        },\n        \"city\": {\n          \"type\": \"string\",\n          \"description\": \"市\"\n        },\n        \"closeTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"关闭时间\"\n        },\n        \"createTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"创建时间/下单时间\"\n        },\n        \"deliveryTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"发货时间\"\n        },\n        \"finishTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"完成时间\"\n        },\n        \"orderDetails\": {\n          \"type\": \"array\",\n          \"description\": \"订单明细\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"barCode\": {\n                \"type\": \"string\",\n                \"description\": \"条形码\"\n              },\n              \"packages\": {\n                \"type\": \"array\",\n                \"description\": \"物流包裹\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"companyName\": {\n                      \"type\": \"string\",\n                      \"description\": \"物流公司\"\n                    },\n                    \"logisticsNo\": {\n                      \"type\": \"string\",\n                      \"description\": \"物流单号\"\n                    },\n                    \"quantity\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"商品数量\"\n                    }\n                  },\n                  \"title\": \"PackageResponseVO\",\n                  \"$$ref\": \"#/definitions/PackageResponseVO\"\n                }\n              },\n              \"productName\": {\n                \"type\": \"string\",\n                \"description\": \"商品名称\"\n              },\n              \"quantity\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"发货数量\"\n              },\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"sku编码\"\n              },\n              \"skuImgUrl\": {\n                \"type\": \"string\",\n                \"description\": \"商品图片地址\"\n              },\n              \"skuName\": {\n                \"type\": \"string\",\n                \"description\": \"skuname（商品属性）\"\n              },\n              \"type\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"商品类型：1-普通商品、2-推广商品\"\n              }\n            },\n            \"title\": \"OrderDetailResponseVO\",\n            \"$$ref\": \"#/definitions/OrderDetailResponseVO\"\n          }\n        },\n        \"orderNo\": {\n          \"type\": \"string\",\n          \"description\": \"订单号\"\n        },\n        \"orderStatus\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"订单状态，1-待处理，2-待收货 ，3-已完成，4-已关闭\"\n        },\n        \"orderType\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"订单类型：1-普通订单、2-升级订单\"\n        },\n        \"orderUserCode\": {\n          \"type\": \"string\",\n          \"description\": \"下单会员号\"\n        },\n        \"orderUserHead\": {\n          \"type\": \"string\",\n          \"description\": \"下单会员头像\"\n        },\n        \"orderUserName\": {\n          \"type\": \"string\",\n          \"description\": \"升级人昵称\"\n        },\n        \"promotionLevel\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"晋升等级；1-专家升级股东\"\n        },\n        \"province\": {\n          \"type\": \"string\",\n          \"description\": \"省\"\n        },\n        \"pushTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"推送时间\"\n        },\n        \"receiver\": {\n          \"type\": \"string\",\n          \"description\": \"收件人\"\n        },\n        \"receiverPhone\": {\n          \"type\": \"string\",\n          \"description\": \"收件人联系电话\"\n        },\n        \"street\": {\n          \"type\": \"string\",\n          \"description\": \"街道\"\n        },\n        \"upgradeUserCode\": {\n          \"type\": \"string\",\n          \"description\": \"升级人会员号\"\n        },\n        \"upgradeUserHead\": {\n          \"type\": \"string\",\n          \"description\": \"升级人头像\"\n        },\n        \"upgradeUserName\": {\n          \"type\": \"string\",\n          \"description\": \"升级人昵称\"\n        },\n        \"userRemarks\": {\n          \"type\": \"string\",\n          \"description\": \"用户备注\"\n        }\n      },\n      \"title\": \"OrderResponseVO\",\n      \"$$ref\": \"#/definitions/OrderResponseVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«OrderResponseVO»\",\n  \"$$ref\": \"#/definitions/Response«OrderResponseVO»\"\n}",
+        "project_id": 174,
+        "catid": 8781,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400803,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/order/callback",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34182,
+        "method": "POST",
+        "title": "雷云回调",
+        "path": "/admin/order/callback",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2abb",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"bizData\": {\n      \"type\": \"string\"\n    },\n    \"sign\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"RequestCallbackParamVO\",\n  \"$$ref\": \"#/definitions/RequestCallbackParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8781,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400803,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "name": "customer-account-controller",
+    "desc": "Customer Account Controller",
+    "add_time": 1572400802,
+    "up_time": 1572400802,
+    "list": [
+      {
+        "query_path": {
+          "path": "/customer/recv_qiyu",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34266,
+        "method": "POST",
+        "title": "onUnicornMsg",
+        "path": "/customer/recv_qiyu",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2adc",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5db8eea43ae2df0d305c2adf",
+            "name": "checksum",
+            "desc": "checksum"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea43ae2df0d305c2ade",
+            "name": "eventType",
+            "desc": "eventType"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea43ae2df0d305c2add",
+            "name": "time",
+            "desc": "time"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34272,
+        "method": "GET",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae0",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae4",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae3",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae2",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae1",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34278,
+        "method": "HEAD",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae5",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae9",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae8",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae7",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2ae6",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34284,
+        "method": "POST",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aea",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aee",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aed",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aec",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aeb",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34290,
+        "method": "PUT",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aef",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af3",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af2",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af1",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af0",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34296,
+        "method": "DELETE",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af4",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af8",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af7",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af6",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af5",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34302,
+        "method": "OPTIONS",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2af9",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2afd",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2afc",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2afb",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2afa",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/customer/recv_wx",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34308,
+        "method": "PATCH",
+        "title": "onWxMessage",
+        "path": "/customer/recv_wx",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2afe",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b02",
+            "name": "echostr",
+            "desc": "echostr"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b01",
+            "name": "nonce",
+            "desc": "nonce"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b00",
+            "name": "signature",
+            "desc": "signature"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2aff",
+            "name": "timestamp",
+            "desc": "timestamp"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"string\"\n}",
+        "project_id": 174,
+        "catid": 8788,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "name": "H5商品接口信息",
+    "desc": "Product Controller",
+    "add_time": 1572400803,
+    "up_time": 1572400972,
+    "list": [
+      {
+        "query_path": {
+          "path": "/h5/product/stock/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34374,
+        "method": "GET",
+        "title": "商品库存列表",
+        "desc": "商品库存列表",
+        "path": "/h5/product/stock/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b16",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"商品标题\"\n          },\n          \"platformSalableCount\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"商品库存\"\n          },\n          \"productImgs\": {\n            \"type\": \"array\",\n            \"description\": \"商品图片\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"originalImgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"原图url地址\"\n                },\n                \"smallImgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"缩略图url地址\"\n                },\n                \"sort\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int32\",\n                  \"description\": \"排序\"\n                },\n                \"type\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片类型：1-商品主图；2-明细图片\"\n                }\n              },\n              \"title\": \"ProductImgResultVo\",\n              \"$$ref\": \"#/definitions/ProductImgResultVo\"\n            }\n          },\n          \"productSkus\": {\n            \"type\": \"array\",\n            \"description\": \"商品明细\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"barCode\": {\n                  \"type\": \"string\",\n                  \"description\": \"条形码\"\n                },\n                \"minCount\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int32\",\n                  \"description\": \"商品最少起订量\"\n                },\n                \"properties\": {\n                  \"type\": \"string\",\n                  \"description\": \"商品属性\"\n                },\n                \"skuCode\": {\n                  \"type\": \"string\",\n                  \"description\": \"商品SKU\"\n                },\n                \"skuImgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"商品图片\"\n                },\n                \"unit\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int32\",\n                  \"description\": \"sku单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n                }\n              },\n              \"title\": \"ProductSkuResultVo\",\n              \"$$ref\": \"#/definitions/ProductSkuResultVo\"\n            }\n          },\n          \"properties\": {\n            \"type\": \"string\",\n            \"description\": \"商品属性\"\n          },\n          \"skuCode\": {\n            \"type\": \"string\",\n            \"description\": \"商品SKUCode\"\n          },\n          \"spuCode\": {\n            \"type\": \"string\",\n            \"description\": \"商品SUP编码\"\n          }\n        },\n        \"title\": \"ProductResultVo\",\n        \"$$ref\": \"#/definitions/ProductResultVo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«ProductResultVo»»\",\n  \"$$ref\": \"#/definitions/Response«List«ProductResultVo»»\"\n}",
+        "project_id": 174,
+        "catid": 8837,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/product/get/{skuCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34356,
+        "method": "GET",
+        "title": "商品详情-规格",
+        "desc": "商品详情-规格",
+        "path": "/h5/product/get/{skuCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2b12",
+            "name": "skuCode",
+            "desc": "skuCode"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b13",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"商品标题\"\n        },\n        \"platformSalableCount\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"商品库存\"\n        },\n        \"productImgs\": {\n          \"type\": \"array\",\n          \"description\": \"商品图片\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"originalImgUrl\": {\n                \"type\": \"string\",\n                \"description\": \"原图url地址\"\n              },\n              \"smallImgUrl\": {\n                \"type\": \"string\",\n                \"description\": \"缩略图url地址\"\n              },\n              \"sort\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"排序\"\n              },\n              \"type\": {\n                \"type\": \"string\",\n                \"description\": \"图片类型：1-商品主图；2-明细图片\"\n              }\n            },\n            \"title\": \"ProductImgResultVo\",\n            \"$$ref\": \"#/definitions/ProductImgResultVo\"\n          }\n        },\n        \"productSkus\": {\n          \"type\": \"array\",\n          \"description\": \"商品明细\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"barCode\": {\n                \"type\": \"string\",\n                \"description\": \"条形码\"\n              },\n              \"minCount\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"商品最少起订量\"\n              },\n              \"properties\": {\n                \"type\": \"string\",\n                \"description\": \"商品属性\"\n              },\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"商品SKU\"\n              },\n              \"skuImgUrl\": {\n                \"type\": \"string\",\n                \"description\": \"商品图片\"\n              },\n              \"unit\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"sku单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n              }\n            },\n            \"title\": \"ProductSkuResultVo\",\n            \"$$ref\": \"#/definitions/ProductSkuResultVo\"\n          }\n        },\n        \"properties\": {\n          \"type\": \"string\",\n          \"description\": \"商品属性\"\n        },\n        \"skuCode\": {\n          \"type\": \"string\",\n          \"description\": \"商品SKUCode\"\n        },\n        \"spuCode\": {\n          \"type\": \"string\",\n          \"description\": \"商品SUP编码\"\n        }\n      },\n      \"title\": \"ProductResultVo\",\n      \"$$ref\": \"#/definitions/ProductResultVo\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«ProductResultVo»\",\n  \"$$ref\": \"#/definitions/Response«ProductResultVo»\"\n}",
+        "project_id": 174,
+        "catid": 8837,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/product/gift/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34362,
+        "method": "GET",
+        "title": "获取升级礼包（下单）",
+        "desc": "获取升级礼包（下单）",
+        "path": "/h5/product/gift/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b14",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"barCode\": {\n            \"type\": \"string\",\n            \"description\": \"条形码\"\n          },\n          \"minCount\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"商品最少起订量\"\n          },\n          \"properties\": {\n            \"type\": \"string\",\n            \"description\": \"商品属性\"\n          },\n          \"skuCode\": {\n            \"type\": \"string\",\n            \"description\": \"商品SKU\"\n          },\n          \"skuImgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"商品图片\"\n          },\n          \"unit\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"sku单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n          }\n        },\n        \"title\": \"ProductSkuResultVo\",\n        \"$$ref\": \"#/definitions/ProductSkuResultVo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«ProductSkuResultVo»»\",\n  \"$$ref\": \"#/definitions/Response«List«ProductSkuResultVo»»\"\n}",
+        "project_id": 174,
+        "catid": 8837,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/product/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34368,
+        "method": "GET",
+        "title": "获取普通商品列表（下单）",
+        "desc": "获取普通商品列表（下单）",
+        "path": "/h5/product/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b15",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"barCode\": {\n            \"type\": \"string\",\n            \"description\": \"条形码\"\n          },\n          \"minCount\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"商品最少起订量\"\n          },\n          \"properties\": {\n            \"type\": \"string\",\n            \"description\": \"商品属性\"\n          },\n          \"skuCode\": {\n            \"type\": \"string\",\n            \"description\": \"商品SKU\"\n          },\n          \"skuImgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"商品图片\"\n          },\n          \"unit\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"sku单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n          }\n        },\n        \"title\": \"ProductSkuResultVo\",\n        \"$$ref\": \"#/definitions/ProductSkuResultVo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«ProductSkuResultVo»»\",\n  \"$$ref\": \"#/definitions/Response«List«ProductSkuResultVo»»\"\n}",
+        "project_id": 174,
+        "catid": 8837,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "name": "H5用户接口",
+    "desc": "Admin Login Controller",
+    "add_time": 1572400803,
+    "up_time": 1572401077,
+    "list": [
+      {
+        "query_path": {
+          "path": "/h5/user/orders",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34434,
+        "method": "GET",
+        "title": "查看团队订单列表",
+        "path": "/h5/user/orders",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b23",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"string\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«string»\",\n  \"$$ref\": \"#/definitions/Response«string»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/address/{type}/userAddress",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34386,
+        "method": "POST",
+        "title": "修改用户地址",
+        "path": "/h5/user/address/{type}/userAddress",
+        "req_params": [
+          {
+            "_id": "5db8eea53ae2df0d305c2b18",
+            "name": "type",
+            "desc": "type"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b19",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«Void»\",\n  \"$$ref\": \"#/definitions/Response«Void»\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"address\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"详细收货地址\"\n    },\n    \"area\": {\n      \"type\": \"string\",\n      \"example\": \"萧山区\",\n      \"description\": \"区\"\n    },\n    \"areaCode\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"区code\"\n    },\n    \"city\": {\n      \"type\": \"string\",\n      \"example\": \"杭州市\",\n      \"description\": \"市\"\n    },\n    \"cityCode\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"市code\"\n    },\n    \"province\": {\n      \"type\": \"string\",\n      \"example\": \"浙江省\",\n      \"description\": \"省\"\n    },\n    \"provinceCode\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"省code\"\n    },\n    \"receiver\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"收货人姓名\"\n    },\n    \"receiverPhone\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"收货人手机号\"\n    },\n    \"status\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"example\": 1,\n      \"description\": \"地址状态 0可用 1默认(可用) 2已删除 \"\n    },\n    \"street\": {\n      \"type\": \"string\",\n      \"example\": \"宁围街道\",\n      \"description\": \"镇、乡、街道\"\n    },\n    \"streetCode\": {\n      \"type\": \"string\",\n      \"example\": 4324,\n      \"description\": \"镇、乡、街道code\"\n    }\n  },\n  \"title\": \"UpdateUserAddressParamVO\",\n  \"$$ref\": \"#/definitions/UpdateUserAddressParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/lower/count",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34422,
+        "method": "GET",
+        "title": "客户列表统计",
+        "path": "/h5/user/lower/count",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b20",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"directExpert\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"直属专家数量\"\n        },\n        \"directShareholder\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"直属股东数量\"\n        },\n        \"directSubsidiary\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"直属分公司数量\"\n        },\n        \"expert\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"专家数量\"\n        },\n        \"shareholder\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"股东数量\"\n        },\n        \"subsidiary\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"分公司数量\"\n        },\n        \"totalAccount\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 4324,\n          \"description\": \"客户量总数\"\n        }\n      },\n      \"title\": \"UserLowerCountResultVO\",\n      \"$$ref\": \"#/definitions/UserLowerCountResultVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«UserLowerCountResultVO»\",\n  \"$$ref\": \"#/definitions/Response«UserLowerCountResultVO»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/login/wechat/{code}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34416,
+        "method": "GET",
+        "title": "微信授权登录",
+        "path": "/h5/user/login/wechat/{code}",
+        "req_params": [
+          {
+            "_id": "5db8f4043ae2df0d305c2b3c",
+            "name": "code",
+            "desc": "code"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5db8f4043ae2df0d305c2b3d",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"code=40003时，表示需要用户注册\"},\"data\":{\"type\":\"object\",\"properties\":{\"expiresIn\":{\"type\":\"integer\",\"format\":\"int64\",\"example\":432432,\"description\":\"授权token有效期，暂定30天，单位秒\"},\"ucToken\":{\"type\":\"string\",\"example\":\"fgregretge\",\"description\":\"授权token\"}},\"title\":\"UserToken\",\"$$ref\":\"#/definitions/UserToken\"},\"message\":{\"type\":\"string\"}},\"title\":\"Response«UserToken»\",\"$$ref\":\"#/definitions/Response«UserToken»\"}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572402180,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/register/invite/{inviteKey}/{code}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34452,
+        "method": "GET",
+        "title": "打开H5邀请链接，获取邀请码",
+        "path": "/h5/user/register/invite/{inviteKey}/{code}",
+        "req_params": [
+          {
+            "_id": "5db94c8f3ae2df0d305c2b45",
+            "name": "inviteKey",
+            "desc": "邀请链接"
+          },
+          {
+            "_id": "5db94c8f3ae2df0d305c2b44",
+            "name": "code",
+            "desc": "微信授权码"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5db94c8f3ae2df0d305c2b46",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\"},\"data\":{\"type\":\"object\",\"properties\":{\"info\":{\"type\":\"string\",\"description\":\"跳转秀购注册时，需要带过去的注册参数\"},\"inviteName\":{\"type\":\"string\",\"description\":\"注册邀请人昵称\"}},\"required\":[]},\"message\":{\"type\":\"string\"}},\"title\":\"Response«string»\",\"$$ref\":\"#/definitions/Response«string»\"}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572424847,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/lower/list/{level}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34428,
+        "method": "GET",
+        "title": "查看各个层级的客户列表明细",
+        "path": "/h5/user/lower/list/{level}",
+        "req_params": [
+          {
+            "_id": "5db8eea53ae2df0d305c2b21",
+            "name": "level",
+            "desc": "level"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b22",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"headImg\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"用户头像\"\n        },\n        \"isDirect\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": \"fgregretge\",\n          \"description\": \"是否是直属 0不是 1是\"\n        },\n        \"level\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 1,\n          \"description\": \"用户等级1专家 2股东 3分公司\"\n        },\n        \"nickname\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"用户昵称\"\n        },\n        \"phone\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"手机号\"\n        },\n        \"registerTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"example\": \"2020-10-10 10:00:00\",\n          \"description\": \"注册时间\"\n        },\n        \"userCode\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"uc用户code\"\n        },\n        \"wechatNickname\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"绑定的微信昵称\"\n        }\n      },\n      \"title\": \"UserCustomerInfoResultVO\",\n      \"$$ref\": \"#/definitions/UserCustomerInfoResultVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«UserCustomerInfoResultVO»\",\n  \"$$ref\": \"#/definitions/Response«UserCustomerInfoResultVO»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/brands",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34398,
+        "method": "GET",
+        "title": "查看品牌授权列表",
+        "path": "/h5/user/brands",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b1b",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"authTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"example\": \"2019-02-02 02:00:00\",\n            \"description\": \"授权时间\"\n          },\n          \"brandCode\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"品牌code\"\n          },\n          \"brandName\": {\n            \"type\": \"string\",\n            \"description\": \"品牌名\"\n          },\n          \"level\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 1,\n            \"description\": \"用户等级1专家 2股东 3分公司\"\n          },\n          \"logoUrl\": {\n            \"type\": \"string\",\n            \"description\": \"品牌logo\"\n          },\n          \"realName\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"授权真实姓名\"\n          },\n          \"status\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 1,\n            \"description\": \"授权状态 0正常 1停用 2已过期\"\n          },\n          \"userAuthCode\": {\n            \"type\": \"string\",\n            \"description\": \"品牌授权号\"\n          },\n          \"validityTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"example\": \"2019-02-02 02:00:00\",\n            \"description\": \"授权有效期\"\n          }\n        },\n        \"title\": \"UserBrandResultVO\",\n        \"$$ref\": \"#/definitions/UserBrandResultVO\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«UserBrandResultVO»»\",\n  \"$$ref\": \"#/definitions/Response«List«UserBrandResultVO»»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/update",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34464,
+        "method": "GET",
+        "title": "修改用户自己的基本信息",
+        "path": "/h5/user/update",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b2b",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b2c",
+            "name": "nickname",
+            "desc": "昵称"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«Void»\",\n  \"$$ref\": \"#/definitions/Response«Void»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/orders/{skuCode}/{type}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34440,
+        "method": "GET",
+        "title": "查看某个商品的销售记录、账单",
+        "path": "/h5/user/orders/{skuCode}/{type}",
+        "req_params": [
+          {
+            "_id": "5db8eea53ae2df0d305c2b25",
+            "name": "skuCode",
+            "desc": "skuCode"
+          },
+          {
+            "_id": "5db8eea53ae2df0d305c2b24",
+            "name": "type",
+            "desc": "type"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b26",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"string\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«string»\",\n  \"$$ref\": \"#/definitions/Response«string»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/address/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34380,
+        "method": "GET",
+        "title": "查看用户地址列表",
+        "path": "/h5/user/address/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b17",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"address\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"详细收货地址\"\n          },\n          \"areaCode\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"区\"\n          },\n          \"cityCode\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"市\"\n          },\n          \"provinceCode\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"省\"\n          },\n          \"receiver\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"收货人姓名\"\n          },\n          \"receiverPhone\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"收货人手机号\"\n          },\n          \"status\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"example\": 4324,\n            \"description\": \"地址状态 0可用 1默认(可用) 2已删除\"\n          },\n          \"streetCode\": {\n            \"type\": \"string\",\n            \"example\": 4324,\n            \"description\": \"镇、乡、街道\"\n          }\n        },\n        \"title\": \"UserAddressResultVO\",\n        \"$$ref\": \"#/definitions/UserAddressResultVO\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«UserAddressResultVO»»\",\n  \"$$ref\": \"#/definitions/Response«List«UserAddressResultVO»»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/register",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34446,
+        "method": "GET",
+        "title": "注册",
+        "path": "/h5/user/register",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b27",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«Void»\",\n  \"$$ref\": \"#/definitions/Response«Void»\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"inviteCode\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"注册邀请码\"\n    },\n    \"userInfo\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"注册秀购业务，它方返回的加密的用户信息\"\n    }\n  },\n  \"title\": \"RegisterParamVO\",\n  \"$$ref\": \"#/definitions/RegisterParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/brand/auth",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34392,
+        "method": "POST",
+        "title": "生成新授权证书",
+        "path": "/h5/user/brand/auth",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b1a",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"authTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"example\": \"2019-02-02 02:00:00\",\n          \"description\": \"授权时间\"\n        },\n        \"brandCode\": {\n          \"type\": \"string\",\n          \"example\": 4324,\n          \"description\": \"品牌code\"\n        },\n        \"brandName\": {\n          \"type\": \"string\",\n          \"description\": \"品牌名\"\n        },\n        \"level\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 1,\n          \"description\": \"用户等级1专家 2股东 3分公司\"\n        },\n        \"logoUrl\": {\n          \"type\": \"string\",\n          \"description\": \"品牌logo\"\n        },\n        \"realName\": {\n          \"type\": \"string\",\n          \"example\": 4324,\n          \"description\": \"授权真实姓名\"\n        },\n        \"status\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 1,\n          \"description\": \"授权状态 0正常 1停用 2已过期\"\n        },\n        \"userAuthCode\": {\n          \"type\": \"string\",\n          \"description\": \"品牌授权号\"\n        },\n        \"validityTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"example\": \"2019-02-02 02:00:00\",\n          \"description\": \"授权有效期\"\n        }\n      },\n      \"title\": \"UserBrandResultVO\",\n      \"$$ref\": \"#/definitions/UserBrandResultVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«UserBrandResultVO»\",\n  \"$$ref\": \"#/definitions/Response«UserBrandResultVO»\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"brandCode\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"品牌code\"\n    },\n    \"realName\": {\n      \"type\": \"string\",\n      \"example\": \"fgregretge\",\n      \"description\": \"品牌授权证书持有人(真实姓名)\"\n    }\n  },\n  \"title\": \"BrandAuthParamVO\",\n  \"$$ref\": \"#/definitions/BrandAuthParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/login/main",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34410,
+        "method": "GET",
+        "title": "登录首页信息",
+        "path": "/h5/user/login/main",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b1d",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"businessInfo\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"fixedSales\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\",\n              \"example\": 1,\n              \"description\": \"定档销量\"\n            },\n            \"orderCount\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\",\n              \"example\": 1000,\n              \"description\": \"待处理订单数量\"\n            },\n            \"ownExpectIncome\": {\n              \"type\": \"string\",\n              \"example\": \"1000.00积分\",\n              \"description\": \"个人预计收益\"\n            },\n            \"ownOrderCount\": {\n              \"type\": \"string\",\n              \"example\": \"100箱\",\n              \"description\": \"自提量\"\n            },\n            \"returnPoint\": {\n              \"type\": \"string\",\n              \"example\": \"P1：2.50积分 P2：2.50积分\",\n              \"description\": \"返点档位\"\n            },\n            \"settleTime\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"example\": \"2020-10-10 10:00:00\",\n              \"description\": \"结算倒计时\"\n            },\n            \"teamOrderCount\": {\n              \"type\": \"string\",\n              \"example\": \"2000箱\",\n              \"description\": \"团队提货总量\"\n            }\n          },\n          \"title\": \"UserBusinessOverviewResultVO\",\n          \"$$ref\": \"#/definitions/UserBusinessOverviewResultVO\"\n        },\n        \"userInfo\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"headImg\": {\n              \"type\": \"string\",\n              \"example\": \"fgregretge\",\n              \"description\": \"用户头像\"\n            },\n            \"level\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\",\n              \"example\": 1,\n              \"description\": \"用户等级1专家 2股东 3分公司\"\n            },\n            \"nickname\": {\n              \"type\": \"string\",\n              \"example\": \"fgregretge\",\n              \"description\": \"用户昵称\"\n            },\n            \"phone\": {\n              \"type\": \"string\",\n              \"example\": \"fgregretge\",\n              \"description\": \"手机号\"\n            },\n            \"userCode\": {\n              \"type\": \"string\",\n              \"example\": \"fgregretge\",\n              \"description\": \"uc用户code\"\n            },\n            \"wechatNickname\": {\n              \"type\": \"string\",\n              \"example\": \"fgregretge\",\n              \"description\": \"绑定的微信昵称\"\n            }\n          },\n          \"title\": \"UserInfoResultVO\",\n          \"$$ref\": \"#/definitions/UserInfoResultVO\"\n        }\n      },\n      \"title\": \"LoginMainRsultVO\",\n      \"$$ref\": \"#/definitions/LoginMainRsultVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«LoginMainRsultVO»\",\n  \"$$ref\": \"#/definitions/Response«LoginMainRsultVO»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/info",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34404,
+        "method": "GET",
+        "title": "获取用户自己的基本信息",
+        "path": "/h5/user/info",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea53ae2df0d305c2b1c",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"headImg\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"用户头像\"\n        },\n        \"level\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"example\": 1,\n          \"description\": \"用户等级1专家 2股东 3分公司\"\n        },\n        \"nickname\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"用户昵称\"\n        },\n        \"phone\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"手机号\"\n        },\n        \"userCode\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"uc用户code\"\n        },\n        \"wechatNickname\": {\n          \"type\": \"string\",\n          \"example\": \"fgregretge\",\n          \"description\": \"绑定的微信昵称\"\n        }\n      },\n      \"title\": \"UserInfoResultVO\",\n      \"$$ref\": \"#/definitions/UserInfoResultVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«UserInfoResultVO»\",\n  \"$$ref\": \"#/definitions/Response«UserInfoResultVO»\"\n}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572400805,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/user/register/url",
+          "params": []
+        },
+        "edit_uid": 81,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34458,
+        "method": "GET",
+        "title": "获取邀请注册链接",
+        "path": "/h5/user/register/url",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5db953c23ae2df0d305c2b47",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\"},\"data\":{\"type\":\"object\",\"properties\":{\"expiresIn\":{\"type\":\"integer\",\"format\":\"int32\",\"example\":432432,\"description\":\"注册链接有效期，单位秒\"},\"inviteKey\":{\"type\":\"string\",\"example\":432432,\"description\":\"邀请注册链接\"}},\"title\":\"UserRegisterUrlResultVO\",\"$$ref\":\"#/definitions/UserRegisterUrlResultVO\",\"required\":[]},\"message\":{\"type\":\"string\"}},\"title\":\"Response«UserRegisterUrlResultVO»\",\"$$ref\":\"#/definitions/Response«UserRegisterUrlResultVO»\"}",
+        "project_id": 174,
+        "catid": 8844,
+        "uid": 81,
+        "add_time": 1572400805,
+        "up_time": 1572426690,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "name": "H5订单接口信息",
+    "desc": "Order Controller",
+    "add_time": 1572400803,
+    "up_time": 1572400983,
+    "list": [
+      {
+        "query_path": {
+          "path": "/h5/order/save",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34344,
+        "method": "PUT",
+        "title": "保存订货",
+        "desc": "保存订单",
+        "path": "/h5/order/save",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b0f",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"required\": [\n    \"address\",\n    \"area\",\n    \"areaCode\",\n    \"city\",\n    \"cityCode\",\n    \"orderDetails\",\n    \"orderType\",\n    \"province\",\n    \"provinceCode\",\n    \"receiver\",\n    \"receiverPhone\",\n    \"upgradeUserCode\"\n  ],\n  \"properties\": {\n    \"address\": {\n      \"type\": \"string\",\n      \"description\": \"详细地址\"\n    },\n    \"area\": {\n      \"type\": \"string\",\n      \"description\": \"区\"\n    },\n    \"areaCode\": {\n      \"type\": \"string\",\n      \"description\": \"区级代码\"\n    },\n    \"city\": {\n      \"type\": \"string\",\n      \"description\": \"市\"\n    },\n    \"cityCode\": {\n      \"type\": \"string\",\n      \"description\": \"市级代码\"\n    },\n    \"orderDetails\": {\n      \"type\": \"array\",\n      \"description\": \"订单明细\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"quantity\",\n          \"skuCode\"\n        ],\n        \"properties\": {\n          \"quantity\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"发货数量\"\n          },\n          \"skuCode\": {\n            \"type\": \"string\",\n            \"description\": \"sku编码\"\n          }\n        },\n        \"title\": \"OrderDetailParamVO\",\n        \"$$ref\": \"#/definitions/OrderDetailParamVO\"\n      }\n    },\n    \"orderType\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"订单类型：1-普通订单、2-升级订单\"\n    },\n    \"promotionLevel\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"晋升等级1-专家升级股东\"\n    },\n    \"province\": {\n      \"type\": \"string\",\n      \"description\": \"省\"\n    },\n    \"provinceCode\": {\n      \"type\": \"string\",\n      \"description\": \"省级代码\"\n    },\n    \"receiver\": {\n      \"type\": \"string\",\n      \"description\": \"收件人\"\n    },\n    \"receiverPhone\": {\n      \"type\": \"string\",\n      \"description\": \"收件人联系电话\"\n    },\n    \"street\": {\n      \"type\": \"string\",\n      \"description\": \"街道\"\n    },\n    \"upgradeUserCode\": {\n      \"type\": \"string\",\n      \"description\": \"升级人会员号\"\n    },\n    \"userRemarks\": {\n      \"type\": \"string\",\n      \"description\": \"用户备注\"\n    }\n  },\n  \"title\": \"OrderParamVO\",\n  \"$$ref\": \"#/definitions/OrderParamVO\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/order/agree/{orderCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34314,
+        "method": "PUT",
+        "title": "同意并发货",
+        "desc": "同意并发货",
+        "path": "/h5/order/agree/{orderCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2b03",
+            "name": "orderCode",
+            "desc": "订单编号"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b04",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/order/undo/{orderCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34350,
+        "method": "PUT",
+        "title": "撤销订单",
+        "desc": "撤销订单",
+        "path": "/h5/order/undo/{orderCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2b10",
+            "name": "orderCode",
+            "desc": "订单编号"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b11",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/order/getLogistics/{orderCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34326,
+        "method": "GET",
+        "title": "物流查询",
+        "desc": "物流查询",
+        "path": "/h5/order/getLogistics/{orderCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2b07",
+            "name": "orderCode",
+            "desc": "订单编号"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b08",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/order/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34332,
+        "method": "GET",
+        "title": "订单列表",
+        "desc": "订单列表",
+        "path": "/h5/order/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b09",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b0c",
+            "name": "orderStatus",
+            "desc": "订单状态"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea43ae2df0d305c2b0b",
+            "name": "page",
+            "desc": "当前页码"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea43ae2df0d305c2b0a",
+            "name": "pageSize",
+            "desc": "每页数量"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"address\": {\n                \"type\": \"string\",\n                \"description\": \"详细地址\"\n              },\n              \"area\": {\n                \"type\": \"string\",\n                \"description\": \"区\"\n              },\n              \"auditTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"审核时间\"\n              },\n              \"cancelTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"取消时间\"\n              },\n              \"city\": {\n                \"type\": \"string\",\n                \"description\": \"市\"\n              },\n              \"closeTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"关闭时间\"\n              },\n              \"createTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"创建时间/下单时间\"\n              },\n              \"deliveryTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"发货时间\"\n              },\n              \"finishTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"完成时间\"\n              },\n              \"orderDetails\": {\n                \"type\": \"array\",\n                \"description\": \"订单明细\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"barCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"条形码\"\n                    },\n                    \"packages\": {\n                      \"type\": \"array\",\n                      \"description\": \"物流包裹\",\n                      \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"companyName\": {\n                            \"type\": \"string\",\n                            \"description\": \"物流公司\"\n                          },\n                          \"logisticsNo\": {\n                            \"type\": \"string\",\n                            \"description\": \"物流单号\"\n                          },\n                          \"quantity\": {\n                            \"type\": \"integer\",\n                            \"format\": \"int32\",\n                            \"description\": \"商品数量\"\n                          }\n                        },\n                        \"title\": \"PackageResponseVO\",\n                        \"$$ref\": \"#/definitions/PackageResponseVO\"\n                      }\n                    },\n                    \"productName\": {\n                      \"type\": \"string\",\n                      \"description\": \"商品名称\"\n                    },\n                    \"quantity\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"发货数量\"\n                    },\n                    \"skuCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"sku编码\"\n                    },\n                    \"skuImgUrl\": {\n                      \"type\": \"string\",\n                      \"description\": \"商品图片地址\"\n                    },\n                    \"skuName\": {\n                      \"type\": \"string\",\n                      \"description\": \"skuname（商品属性）\"\n                    },\n                    \"type\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"商品类型：1-普通商品、2-推广商品\"\n                    }\n                  },\n                  \"title\": \"OrderDetailResponseVO\",\n                  \"$$ref\": \"#/definitions/OrderDetailResponseVO\"\n                }\n              },\n              \"orderNo\": {\n                \"type\": \"string\",\n                \"description\": \"订单号\"\n              },\n              \"orderStatus\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"订单状态，1-待处理，2-待收货 ，3-已完成，4-已关闭\"\n              },\n              \"orderType\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"订单类型：1-普通订单、2-升级订单\"\n              },\n              \"orderUserCode\": {\n                \"type\": \"string\",\n                \"description\": \"下单会员号\"\n              },\n              \"orderUserHead\": {\n                \"type\": \"string\",\n                \"description\": \"下单会员头像\"\n              },\n              \"orderUserName\": {\n                \"type\": \"string\",\n                \"description\": \"升级人昵称\"\n              },\n              \"promotionLevel\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"晋升等级；1-专家升级股东\"\n              },\n              \"province\": {\n                \"type\": \"string\",\n                \"description\": \"省\"\n              },\n              \"pushTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"推送时间\"\n              },\n              \"receiver\": {\n                \"type\": \"string\",\n                \"description\": \"收件人\"\n              },\n              \"receiverPhone\": {\n                \"type\": \"string\",\n                \"description\": \"收件人联系电话\"\n              },\n              \"street\": {\n                \"type\": \"string\",\n                \"description\": \"街道\"\n              },\n              \"upgradeUserCode\": {\n                \"type\": \"string\",\n                \"description\": \"升级人会员号\"\n              },\n              \"upgradeUserHead\": {\n                \"type\": \"string\",\n                \"description\": \"升级人头像\"\n              },\n              \"upgradeUserName\": {\n                \"type\": \"string\",\n                \"description\": \"升级人昵称\"\n              },\n              \"userRemarks\": {\n                \"type\": \"string\",\n                \"description\": \"用户备注\"\n              }\n            },\n            \"title\": \"OrderResponseVO\",\n            \"$$ref\": \"#/definitions/OrderResponseVO\"\n          }\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        }\n      },\n      \"title\": \"PageDTO«OrderResponseVO»\",\n      \"$$ref\": \"#/definitions/PageDTO«OrderResponseVO»\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«PageDTO«OrderResponseVO»»\",\n  \"$$ref\": \"#/definitions/Response«PageDTO«OrderResponseVO»»\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/order/get/{orderCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34320,
+        "method": "GET",
+        "title": "订单详情",
+        "desc": "订单详情",
+        "path": "/h5/order/get/{orderCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2b05",
+            "name": "orderCode",
+            "desc": "订单编号"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b06",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"address\": {\n          \"type\": \"string\",\n          \"description\": \"详细地址\"\n        },\n        \"area\": {\n          \"type\": \"string\",\n          \"description\": \"区\"\n        },\n        \"auditTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"审核时间\"\n        },\n        \"cancelTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"取消时间\"\n        },\n        \"city\": {\n          \"type\": \"string\",\n          \"description\": \"市\"\n        },\n        \"closeTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"关闭时间\"\n        },\n        \"createTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"创建时间/下单时间\"\n        },\n        \"deliveryTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"发货时间\"\n        },\n        \"finishTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"完成时间\"\n        },\n        \"orderDetails\": {\n          \"type\": \"array\",\n          \"description\": \"订单明细\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"barCode\": {\n                \"type\": \"string\",\n                \"description\": \"条形码\"\n              },\n              \"packages\": {\n                \"type\": \"array\",\n                \"description\": \"物流包裹\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"companyName\": {\n                      \"type\": \"string\",\n                      \"description\": \"物流公司\"\n                    },\n                    \"logisticsNo\": {\n                      \"type\": \"string\",\n                      \"description\": \"物流单号\"\n                    },\n                    \"quantity\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"商品数量\"\n                    }\n                  },\n                  \"title\": \"PackageResponseVO\",\n                  \"$$ref\": \"#/definitions/PackageResponseVO\"\n                }\n              },\n              \"productName\": {\n                \"type\": \"string\",\n                \"description\": \"商品名称\"\n              },\n              \"quantity\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"发货数量\"\n              },\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"sku编码\"\n              },\n              \"skuImgUrl\": {\n                \"type\": \"string\",\n                \"description\": \"商品图片地址\"\n              },\n              \"skuName\": {\n                \"type\": \"string\",\n                \"description\": \"skuname（商品属性）\"\n              },\n              \"type\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"商品类型：1-普通商品、2-推广商品\"\n              }\n            },\n            \"title\": \"OrderDetailResponseVO\",\n            \"$$ref\": \"#/definitions/OrderDetailResponseVO\"\n          }\n        },\n        \"orderNo\": {\n          \"type\": \"string\",\n          \"description\": \"订单号\"\n        },\n        \"orderStatus\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"订单状态，1-待处理，2-待收货 ，3-已完成，4-已关闭\"\n        },\n        \"orderType\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"订单类型：1-普通订单、2-升级订单\"\n        },\n        \"orderUserCode\": {\n          \"type\": \"string\",\n          \"description\": \"下单会员号\"\n        },\n        \"orderUserHead\": {\n          \"type\": \"string\",\n          \"description\": \"下单会员头像\"\n        },\n        \"orderUserName\": {\n          \"type\": \"string\",\n          \"description\": \"升级人昵称\"\n        },\n        \"promotionLevel\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"晋升等级；1-专家升级股东\"\n        },\n        \"province\": {\n          \"type\": \"string\",\n          \"description\": \"省\"\n        },\n        \"pushTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"推送时间\"\n        },\n        \"receiver\": {\n          \"type\": \"string\",\n          \"description\": \"收件人\"\n        },\n        \"receiverPhone\": {\n          \"type\": \"string\",\n          \"description\": \"收件人联系电话\"\n        },\n        \"street\": {\n          \"type\": \"string\",\n          \"description\": \"街道\"\n        },\n        \"upgradeUserCode\": {\n          \"type\": \"string\",\n          \"description\": \"升级人会员号\"\n        },\n        \"upgradeUserHead\": {\n          \"type\": \"string\",\n          \"description\": \"升级人头像\"\n        },\n        \"upgradeUserName\": {\n          \"type\": \"string\",\n          \"description\": \"升级人昵称\"\n        },\n        \"userRemarks\": {\n          \"type\": \"string\",\n          \"description\": \"用户备注\"\n        }\n      },\n      \"title\": \"OrderResponseVO\",\n      \"$$ref\": \"#/definitions/OrderResponseVO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«OrderResponseVO»\",\n  \"$$ref\": \"#/definitions/Response«OrderResponseVO»\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/h5/order/rejected/{orderCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34338,
+        "method": "PUT",
+        "title": "驳回订单",
+        "desc": "撤销订单",
+        "path": "/h5/order/rejected/{orderCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea43ae2df0d305c2b0d",
+            "name": "orderCode",
+            "desc": "订单编号"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea43ae2df0d305c2b0e",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response\",\n  \"$$ref\": \"#/definitions/Response\"\n}",
+        "project_id": 174,
+        "catid": 8851,
+        "uid": 81,
+        "add_time": 1572400804,
+        "up_time": 1572400804,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "name": "admin商品信息接口",
+    "desc": null,
+    "add_time": 1572400839,
+    "up_time": 1572400839,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/product/getSupplierSku/{skuCode}/{warehouseCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34212,
+        "method": "GET",
+        "title": "供应商仓库信息查询",
+        "desc": "供应商仓库信息查询",
+        "path": "/admin/product/getSupplierSku/{skuCode}/{warehouseCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea33ae2df0d305c2acb",
+            "name": "skuCode",
+            "desc": "skuCode"
+          },
+          {
+            "_id": "5db8eea33ae2df0d305c2aca",
+            "name": "warehouseCode",
+            "desc": "warehouseCode"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2acc",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"skuCode\": {\n            \"type\": \"string\",\n            \"description\": \"商品sku\"\n          },\n          \"supplierSkuCode\": {\n            \"type\": \"string\",\n            \"description\": \"供应商sku编码\"\n          },\n          \"syncSkuStock\": {\n            \"type\": \"string\",\n            \"description\": \"雷云仓库库存\"\n          },\n          \"syncStatus\": {\n            \"type\": \"string\",\n            \"description\": \"是否同步\"\n          },\n          \"warehouseCode\": {\n            \"type\": \"string\",\n            \"description\": \"仓库编号\"\n          },\n          \"warehouseName\": {\n            \"type\": \"string\",\n            \"description\": \"仓库名称\"\n          }\n        },\n        \"title\": \"SupplierSkuDTO\",\n        \"$$ref\": \"#/definitions/SupplierSkuDTO\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«List«SupplierSkuDTO»»\",\n  \"$$ref\": \"#/definitions/Response«List«SupplierSkuDTO»»\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400886,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/recharge/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34224,
+        "method": "POST",
+        "title": "商品充值管理查询",
+        "desc": "商品充值管理查询",
+        "path": "/admin/recharge/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ad2",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"auditAdmin\": {\n                \"type\": \"string\",\n                \"description\": \"审核人\"\n              },\n              \"auditRemark\": {\n                \"type\": \"string\",\n                \"description\": \"审核说明\"\n              },\n              \"auditStatus\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"审核状态，0-待审核，1-审核同意，2-拒绝审核\"\n              },\n              \"auditTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"审核时间\"\n              },\n              \"count\": {\n                \"type\": \"string\",\n                \"description\": \"充值人数\"\n              },\n              \"createAdmin\": {\n                \"type\": \"string\",\n                \"description\": \"创建人\"\n              },\n              \"createTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"创建时间\"\n              },\n              \"rechargeNo\": {\n                \"type\": \"string\",\n                \"description\": \"充值编号\"\n              },\n              \"remark\": {\n                \"type\": \"string\",\n                \"description\": \"备注\"\n              },\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"sku编码\"\n              },\n              \"skuCodeCount\": {\n                \"type\": \"string\",\n                \"description\": \"充值sku数量\"\n              }\n            },\n            \"title\": \"ProductRechargeDTO\",\n            \"$$ref\": \"#/definitions/ProductRechargeDTO\"\n          }\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        }\n      },\n      \"title\": \"PageDTO«ProductRechargeDTO»\",\n      \"$$ref\": \"#/definitions/PageDTO«ProductRechargeDTO»\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«PageDTO«ProductRechargeDTO»»\",\n  \"$$ref\": \"#/definitions/Response«PageDTO«ProductRechargeDTO»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"auditAdmin\": {\n      \"type\": \"string\",\n      \"description\": \"商品副标题\"\n    },\n    \"auditMaxTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"商品副标题\"\n    },\n    \"auditMinTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"商品副标题\"\n    },\n    \"auditStatus\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"商品副标题\"\n    },\n    \"createAdmin\": {\n      \"type\": \"string\",\n      \"description\": \"商品副标题\"\n    },\n    \"createMaxTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"商品副标题\"\n    },\n    \"createMinTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"商品副标题\"\n    },\n    \"page\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"size\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    }\n  },\n  \"title\": \"ProductRechargeVO\",\n  \"$$ref\": \"#/definitions/ProductRechargeVO\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400844,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34218,
+        "method": "GET",
+        "title": "商品列表查询",
+        "desc": "商品列表查询",
+        "path": "/admin/product/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2acd",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ad1",
+            "name": "name",
+            "desc": "商品名称"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ad0",
+            "name": "page",
+            "desc": "当前页码"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2acf",
+            "name": "pageSize",
+            "desc": "每页数量"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ace",
+            "name": "spuCode",
+            "desc": "商品spu"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"brand\": {\n                \"type\": \"string\",\n                \"description\": \"品牌\"\n              },\n              \"brandCode\": {\n                \"type\": \"string\",\n                \"description\": \"品牌code\"\n              },\n              \"category\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"商品分类\"\n              },\n              \"categoryCode\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"商品分类code\"\n              },\n              \"createTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"创建时间\"\n              },\n              \"detailImage\": {\n                \"type\": \"string\",\n                \"description\": \"详情图\"\n              },\n              \"feature\": {\n                \"type\": \"string\",\n                \"description\": \"额外属性（key:value）\"\n              },\n              \"mainImage\": {\n                \"type\": \"string\",\n                \"description\": \"主图\"\n              },\n              \"name\": {\n                \"type\": \"string\",\n                \"description\": \"商品名称\"\n              },\n              \"note\": {\n                \"type\": \"string\",\n                \"description\": \"备注\"\n              },\n              \"saleCount\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"总销量\"\n              },\n              \"secondName\": {\n                \"type\": \"string\",\n                \"description\": \"商品副标题\"\n              },\n              \"skuDTOList\": {\n                \"type\": \"array\",\n                \"description\": \"商品详情\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"barCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"条形码\"\n                    },\n                    \"minCount\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"最少起订量\"\n                    },\n                    \"platformSalableCount\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"平台可售库存数量\"\n                    },\n                    \"skuCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"商品sku\"\n                    },\n                    \"skuImgUrl\": {\n                      \"type\": \"string\",\n                      \"description\": \"图片地址\"\n                    },\n                    \"skuName\": {\n                      \"type\": \"string\",\n                      \"description\": \"商品名称\"\n                    },\n                    \"spuCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"SUPCode\"\n                    },\n                    \"stockNumCount\": {\n                      \"type\": \"string\",\n                      \"description\": \"分公司库存\"\n                    },\n                    \"syncSkuStockCount\": {\n                      \"type\": \"string\",\n                      \"description\": \"仓库库存\"\n                    },\n                    \"unit\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n                    }\n                  },\n                  \"title\": \"ProductSkuDTO\",\n                  \"$$ref\": \"#/definitions/ProductSkuDTO\"\n                }\n              },\n              \"spuCode\": {\n                \"type\": \"string\",\n                \"description\": \"spuCode\"\n              },\n              \"supplierCode\": {\n                \"type\": \"string\",\n                \"description\": \"供应商code\"\n              },\n              \"type\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"商品类型：1-普通商品、2-推广商品\"\n              },\n              \"updateAdmin\": {\n                \"type\": \"string\",\n                \"description\": \"最后的更新人\"\n              },\n              \"updateTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"更新时间\"\n              },\n              \"warehouseCode\": {\n                \"type\": \"string\",\n                \"description\": \"仓库code(多个英文分号分隔)\"\n              }\n            },\n            \"title\": \"ProductInfoDTO\",\n            \"$$ref\": \"#/definitions/ProductInfoDTO\"\n          }\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        }\n      },\n      \"title\": \"PageDTO«ProductInfoDTO»\",\n      \"$$ref\": \"#/definitions/PageDTO«ProductInfoDTO»\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«PageDTO«ProductInfoDTO»»\",\n  \"$$ref\": \"#/definitions/Response«PageDTO«ProductInfoDTO»»\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400888,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/inventory/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34164,
+        "method": "GET",
+        "title": "商品库存列表查询",
+        "desc": "商品库存列表查询",
+        "path": "/admin/inventory/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ab1",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ab4",
+            "name": "page",
+            "desc": "当前页码"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ab3",
+            "name": "pageSize",
+            "desc": "每页数量"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ab2",
+            "name": "skuCode",
+            "desc": "商品sku"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"platformSalableCount\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"平台可售库存\"\n              },\n              \"salesStock\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"总销量\"\n              },\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"spuCode\"\n              },\n              \"stockNum\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"分公司总库存\"\n              }\n            },\n            \"title\": \"ProductInventoryDTO\",\n            \"$$ref\": \"#/definitions/ProductInventoryDTO\"\n          }\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        }\n      },\n      \"title\": \"PageDTO«ProductInventoryDTO»\",\n      \"$$ref\": \"#/definitions/PageDTO«ProductInventoryDTO»\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«PageDTO«ProductInventoryDTO»»\",\n  \"$$ref\": \"#/definitions/Response«PageDTO«ProductInventoryDTO»»\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400871,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/inventory/listDetail",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34170,
+        "method": "GET",
+        "title": "商品库存列表详情查询",
+        "desc": "商品库存列表详情查询",
+        "path": "/admin/inventory/listDetail",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ab5",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ab9",
+            "name": "page",
+            "desc": "当前页码"
+          },
+          {
+            "required": "1",
+            "_id": "5db8eea33ae2df0d305c2ab8",
+            "name": "pageSize",
+            "desc": "每页数量"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ab7",
+            "name": "skuCode",
+            "desc": "商品sku"
+          },
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ab6",
+            "name": "userCode",
+            "desc": "会员ID"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"spuCode\"\n              },\n              \"stockNum\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"分公司库存\"\n              },\n              \"userCode\": {\n                \"type\": \"string\",\n                \"description\": \"会员ID\"\n              },\n              \"userName\": {\n                \"type\": \"string\",\n                \"description\": \"会员昵称\"\n              }\n            },\n            \"title\": \"ProductInventoryDetailDTO\",\n            \"$$ref\": \"#/definitions/ProductInventoryDetailDTO\"\n          }\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\"\n        }\n      },\n      \"title\": \"PageDTO«ProductInventoryDetailDTO»\",\n      \"$$ref\": \"#/definitions/PageDTO«ProductInventoryDetailDTO»\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«PageDTO«ProductInventoryDetailDTO»»\",\n  \"$$ref\": \"#/definitions/Response«PageDTO«ProductInventoryDetailDTO»»\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400874,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/get/{spuCode}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34206,
+        "method": "GET",
+        "title": "商品详情",
+        "desc": "订单详情",
+        "path": "/admin/product/get/{spuCode}",
+        "req_params": [
+          {
+            "_id": "5db8eea33ae2df0d305c2ac8",
+            "name": "spuCode",
+            "desc": "spuCode"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac9",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"brand\": {\n          \"type\": \"string\",\n          \"description\": \"品牌\"\n        },\n        \"brandCode\": {\n          \"type\": \"string\",\n          \"description\": \"品牌code\"\n        },\n        \"category\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"商品分类\"\n        },\n        \"categoryCode\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"商品分类code\"\n        },\n        \"createTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"创建时间\"\n        },\n        \"detailImage\": {\n          \"type\": \"string\",\n          \"description\": \"详情图\"\n        },\n        \"feature\": {\n          \"type\": \"string\",\n          \"description\": \"额外属性（key:value）\"\n        },\n        \"mainImage\": {\n          \"type\": \"string\",\n          \"description\": \"主图\"\n        },\n        \"name\": {\n          \"type\": \"string\",\n          \"description\": \"商品名称\"\n        },\n        \"note\": {\n          \"type\": \"string\",\n          \"description\": \"备注\"\n        },\n        \"saleCount\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"总销量\"\n        },\n        \"secondName\": {\n          \"type\": \"string\",\n          \"description\": \"商品副标题\"\n        },\n        \"skuDTOList\": {\n          \"type\": \"array\",\n          \"description\": \"商品详情\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"barCode\": {\n                \"type\": \"string\",\n                \"description\": \"条形码\"\n              },\n              \"minCount\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"最少起订量\"\n              },\n              \"platformSalableCount\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"平台可售库存数量\"\n              },\n              \"skuCode\": {\n                \"type\": \"string\",\n                \"description\": \"商品sku\"\n              },\n              \"skuImgUrl\": {\n                \"type\": \"string\",\n                \"description\": \"图片地址\"\n              },\n              \"skuName\": {\n                \"type\": \"string\",\n                \"description\": \"商品名称\"\n              },\n              \"spuCode\": {\n                \"type\": \"string\",\n                \"description\": \"SUPCode\"\n              },\n              \"stockNumCount\": {\n                \"type\": \"string\",\n                \"description\": \"分公司库存\"\n              },\n              \"syncSkuStockCount\": {\n                \"type\": \"string\",\n                \"description\": \"仓库库存\"\n              },\n              \"unit\": {\n                \"type\": \"integer\",\n                \"format\": \"int32\",\n                \"description\": \"单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n              }\n            },\n            \"title\": \"ProductSkuDTO\",\n            \"$$ref\": \"#/definitions/ProductSkuDTO\"\n          }\n        },\n        \"spuCode\": {\n          \"type\": \"string\",\n          \"description\": \"spuCode\"\n        },\n        \"supplierCode\": {\n          \"type\": \"string\",\n          \"description\": \"供应商code\"\n        },\n        \"type\": {\n          \"type\": \"integer\",\n          \"format\": \"int32\",\n          \"description\": \"商品类型：1-普通商品、2-推广商品\"\n        },\n        \"updateAdmin\": {\n          \"type\": \"string\",\n          \"description\": \"最后的更新人\"\n        },\n        \"updateTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"更新时间\"\n        },\n        \"warehouseCode\": {\n          \"type\": \"string\",\n          \"description\": \"仓库code(多个英文分号分隔)\"\n        }\n      },\n      \"title\": \"ProductInfoDTO\",\n      \"$$ref\": \"#/definitions/ProductInfoDTO\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«ProductInfoDTO»\",\n  \"$$ref\": \"#/definitions/Response«ProductInfoDTO»\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400885,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/addProduct",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34200,
+        "method": "POST",
+        "title": "新建商品",
+        "desc": "新建商品",
+        "path": "/admin/product/addProduct",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "0",
+            "_id": "5db8eea33ae2df0d305c2ac7",
+            "name": "token",
+            "desc": "user token"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"title\": \"Response«Void»\",\n  \"$$ref\": \"#/definitions/Response«Void»\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"required\": [\n    \"brandCode\",\n    \"categoryCode\",\n    \"createAdmin\",\n    \"detailImage\",\n    \"mainImage\",\n    \"name\",\n    \"productSkuVOList\",\n    \"supplierCode\",\n    \"type\",\n    \"updateAdmin\",\n    \"warehouseCode\"\n  ],\n  \"properties\": {\n    \"brandCode\": {\n      \"type\": \"string\",\n      \"description\": \"品牌code\"\n    },\n    \"categoryCode\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"商品分类code\"\n    },\n    \"createAdmin\": {\n      \"type\": \"string\",\n      \"description\": \"创建人\"\n    },\n    \"detailImage\": {\n      \"type\": \"string\",\n      \"description\": \"详情图\"\n    },\n    \"feature\": {\n      \"type\": \"string\",\n      \"description\": \"额外属性（key:value）\"\n    },\n    \"mainImage\": {\n      \"type\": \"string\",\n      \"description\": \"主图\"\n    },\n    \"name\": {\n      \"type\": \"string\",\n      \"description\": \"商品名称\"\n    },\n    \"productSkuVOList\": {\n      \"type\": \"array\",\n      \"description\": \"商品详情\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"barCode\",\n          \"minCount\",\n          \"platformSalableCount\",\n          \"skuImgUrl\",\n          \"skuName\",\n          \"supplierSkuVOList\",\n          \"unit\"\n        ],\n        \"properties\": {\n          \"barCode\": {\n            \"type\": \"string\",\n            \"description\": \"条形码\"\n          },\n          \"minCount\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"最少起订量\"\n          },\n          \"platformSalableCount\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"平台可售库存数量\"\n          },\n          \"skuImgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"图片地址\"\n          },\n          \"skuName\": {\n            \"type\": \"string\",\n            \"description\": \"商品名称\"\n          },\n          \"supplierSkuVOList\": {\n            \"type\": \"array\",\n            \"description\": \"供应商sku绑定关系\",\n            \"items\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"supplierSkuCode\",\n                \"syncStatus\",\n                \"wareHouseCode\"\n              ],\n              \"properties\": {\n                \"supplierSkuCode\": {\n                  \"type\": \"string\",\n                  \"description\": \"供应商sku\"\n                },\n                \"syncStatus\": {\n                  \"type\": \"string\",\n                  \"description\": \"是否同步，0-不同步，1-同步\"\n                },\n                \"wareHouseCode\": {\n                  \"type\": \"string\",\n                  \"description\": \"仓库编号\"\n                },\n                \"wareHouseName\": {\n                  \"type\": \"string\",\n                  \"description\": \"仓库名称\"\n                }\n              },\n              \"title\": \"SupplierSkuVO\",\n              \"$$ref\": \"#/definitions/SupplierSkuVO\"\n            }\n          },\n          \"unit\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"单位1-包，2-箱，3-件，4-条，5-盒，6-kg，7-吨，8-平米，9-立方\"\n          }\n        },\n        \"title\": \"ProductSkuVO\",\n        \"$$ref\": \"#/definitions/ProductSkuVO\"\n      }\n    },\n    \"secondName\": {\n      \"type\": \"string\",\n      \"description\": \"商品副标题\"\n    },\n    \"supplierCode\": {\n      \"type\": \"string\",\n      \"description\": \"供应商code\"\n    },\n    \"type\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"商品类型：1-普通商品、2-推广商品\"\n    },\n    \"updateAdmin\": {\n      \"type\": \"string\",\n      \"description\": \"最后的更新人\"\n    },\n    \"warehouseCode\": {\n      \"type\": \"string\",\n      \"description\": \"仓库code(多个英文分号分隔)\"\n    }\n  },\n  \"title\": \"ProductInfoVO\",\n  \"$$ref\": \"#/definitions/ProductInfoVO\"\n}",
+        "project_id": 174,
+        "catid": 8858,
+        "uid": 81,
+        "add_time": 1572400803,
+        "up_time": 1572400882,
+        "__v": 0
+      }
+    ]
+  }
+]
