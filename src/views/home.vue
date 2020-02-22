@@ -52,34 +52,24 @@
         </div>
         <div class="container">
             <div class="img-view" @click='jump(1,"https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2626")'>
-                <img v-lazy="IMAGES.ICON_IMG_BANNER" />
+                <img :src="IMAGES.ICON_IMG_BANNER" />
             </div>
-            <div class="topic">
+            <div class="topic topic-1">
                 <div class="topic-title">
                     <img :src="IMAGES.title01" />
                 </div>
-                <div class="topic-tips">疫情严峻，减少人员聚集，平安为您提供线上自助服务</div>
-               <div class="topic-content">
-                   <div class="topic-p"
-                        v-for="(item, index) in topic1"
-                        :key="index"
+                <div class="topic-1-list">
+                    <div v-for="(item, index) in topic1"
+                         :class="['topic-1-item',index==0? 'active':'']"
+                         :key="index"
                         @click='jump(item.type,item.url)'
-                   >
-                       <img class='topic-img-1'v-lazy="item.img" />
-                       <div >{{item.content1}} <br/> {{item.content2}}</div>
-                   </div>
-               </div>
+                    >
+                        <img class='topic1-img' v-lazy="item.img" />
+                    </div>
+                </div>
             </div>
 
-            <!--<div class="topic">-->
-                <!--<div class="topic-title">抗击肺炎健康专题</div>-->
-                <!--<div class="topic-item" v-for="(item, index) in 2">-->
-                    <!--<img class='topic-img-2'v-lazy="'https://test2cdn.sharegoodsmall.com/sharegoods/5c346ec930c0493fbb8172d55cbedc1c.jpg'" />-->
-                    <!--<div class="topic-item-content">非常时期 正确的汽车消毒姿势</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <div class="topic">
+            <div class="topic topic-2">
                 <div class="topic-title topic-title-2">
                     <img :src="IMAGES.title02" />
                 </div>
@@ -168,11 +158,11 @@ export default {
             isInWeChat,
             topic3: [
                 {
-                    content:'【预防指南】做好这几件小事，抗击疫情更有安全感',
+                    content:'非常时期 正确的汽车消毒姿势',
                     img:IMAGES.ICON_IMG_1,
                     icon:true,
                     type:4,
-                    url:'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1200143'
+                    url:isInWeChat? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Flive%2Froom%3FliveId%3D2325816':"pars://pars.pingan.com/mc/video_live_detail?liveid=2325816"
                 },
                 {
                     content:'【全力防疫】疫情当下返程防护指南！',
@@ -195,6 +185,12 @@ export default {
                     type:7
                 },
                 {
+                    content:'【预防指南】做好这几件小事，抗击疫情更有安全感',
+                    img:IMAGES.ICON_IMG_6,
+                    type:10,
+                    url:'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1200143'
+                },
+                {
                     content:'#抗击疫情|佩戴口罩的注意事项有哪些#',
                     url:'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2521',
                     img:IMAGES.ICON_IMG_5,
@@ -203,34 +199,40 @@ export default {
             ],
             topic1: [
                 {
-                    content1:'防疫期间',
-                    content2:'年检代办暖心升级',
-                    img:IMAGES.ICON_1,
+                    img:IMAGES.TOPIC_ICON_1,
                     type:2,
                     url:isWeixin()? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%25b9%25b4%25e6%25a3%2580%25e4%25bb%25a3%25e5%258a%259e%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dAnnualInspection%2526title%253d%2525E5%2525B9%2525B4%2525E6%2525A3%252580%2525E4%2525BB%2525A3%2525E5%25258A%25259E':'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e5%b9%b4%e6%a3%80%e4%bb%a3%e5%8a%9e&url=pars%3a%2f%2fpars.pingan.com%2fhealthcircle%2fcar_plugin_with_car_manage%3ftype%3dAnnualInspection%26title%3d%25E5%25B9%25B4%25E6%25A3%2580%25E4%25BB%25A3%25E5%258A%259E'
                 },
                 {
-                    content1:'抗“疫”进行时',
-                    content2:'在家享更多车服务',
-                    img:IMAGES.ICON_2,
-                    type:3,
+                    img:IMAGES.TOPIC_ICON_2,
+                    type:11,
+                    des:"车主服务中心",
                     url:'https://m.lifeapp.pingan.com.cn/m/r-act/index.html#/micro-community/driver-club'
                 },
-            ],
-            topic1: [
                 {
-                    content1:'防疫期间',
-                    content2:'年检代办暖心升级',
-                    img:IMAGES.ICON_1,
-                    type:2,
-                    url:isWeixin()? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%25b9%25b4%25e6%25a3%2580%25e4%25bb%25a3%25e5%258a%259e%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dAnnualInspection%2526title%253d%2525E5%2525B9%2525B4%2525E6%2525A3%252580%2525E4%2525BB%2525A3%2525E5%25258A%25259E':'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e5%b9%b4%e6%a3%80%e4%bb%a3%e5%8a%9e&url=pars%3a%2f%2fpars.pingan.com%2fhealthcircle%2fcar_plugin_with_car_manage%3ftype%3dAnnualInspection%26title%3d%25E5%25B9%25B4%25E6%25A3%2580%25E4%25BB%25A3%25E5%258A%259E'
+                    img:IMAGES.TOPIC_ICON_3,
+                    type:12,
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e9%2581%2593%25e8%25b7%25af%25e6%2595%2591%25e6%258f%25b4%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252froadService%252findex.html'
                 },
                 {
-                    content1:'抗“疫”进行时',
-                    content2:'在家享更多车服务',
-                    img:IMAGES.ICON_2,
-                    type:3,
-                    url:'https://m.lifeapp.pingan.com.cn/m/r-act/index.html#/micro-community/driver-club'
+                    img:IMAGES.TOPIC_ICON_4,
+                    type:13,
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e4%25bf%259d%25e5%258d%2595%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fpearl%252fopen_rn%253fbundleId%253d11%2526moduleName%253dPARNPolicy'
+                },
+                {
+                    img:IMAGES.TOPIC_ICON_5,
+                    type:14,
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e8%25bf%259d%25e7%25ab%25a0%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fillegal_index'
+                },
+                {
+                    img:IMAGES.TOPIC_ICON_6,
+                    type:15,
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e6%25b2%25b9%25e5%258d%25a1%25e5%2585%2585%25e5%2580%25bc%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252fumc-discount-cheer%252findex.html%2523%252fhome'
+                },
+                {
+                    img:IMAGES.TOPIC_ICON_7,
+                    type:16,
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%2581%259c%25e8%25bd%25a6%25e6%259f%25a5%25e7%25bc%25b4%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dParkingCar%2526title%253d%2525e5%252581%25259c%2525e8%2525bd%2525a6%2525e6%25259f%2525a5%2525e7%2525bc%2525b4'
                 },
             ],
             show:false,
@@ -260,7 +262,7 @@ export default {
                     //类型
                     type: "video/mp4",
                     //url地址
-                    src: 'https://vdept.bdstatic.com/65716c744544535455506a59784a6235/7963517250325639/b272f983d650bc871e25ffbcb02fbc57206d353e06c0d33625fae3ae9467ffca4c531e1a0882c2d719760c86200f85d4.mp4?auth_key=1582184726-0-0-dbcd2bdfffb4a99f604c1433b5d971fb'
+                    src: 'https://cos-1257316466.cos.ap-shanghai.myqcloud.com/f2ecaa478a16487db75ec727cdf0170b_15s.mp4'
                 }],
                 //允许覆盖Video.js无法播放媒体源时显示的默认信息。
                 notSupportedMessage: '此视频暂无法播放，请稍后再试',
@@ -285,7 +287,7 @@ export default {
                     //类型
                     type: "video/mp4",
                     //url地址
-                    src: 'https://vdept.bdstatic.com/65716c744544535455506a59784a6235/7963517250325639/b272f983d650bc871e25ffbcb02fbc57206d353e06c0d33625fae3ae9467ffca4c531e1a0882c2d719760c86200f85d4.mp4?auth_key=1582184726-0-0-dbcd2bdfffb4a99f604c1433b5d971fb'
+                    src: 'https://cos-1257316466.cos.ap-shanghai.myqcloud.com/f8402838face4868992eb2eaf71bcdcc_all.m4v'
                 }],
                 //允许覆盖Video.js无法播放媒体源时显示的默认信息。
                 notSupportedMessage: '此视频暂无法播放，请稍后再试',
@@ -333,7 +335,7 @@ export default {
                     this.encourageList = res.data
                     this.init()
                     this.$nextTick(()=>{
-//                        //移动速度，值越大速度越慢
+                        //移动速度，值越大速度越慢
                         this.timer1 = setInterval(()=>{
                             this.marquee(1)
                             this.marquee(2)
@@ -356,8 +358,8 @@ export default {
                 videoPlayer1.player.pause()
                 this.$nextTick(()=>{
                     const videoPlayer2 = this.$refs.videoPlayer2
-                    const Player1Time = videoPlayer1.player.currentTime()
-                    videoPlayer2.player.currentTime(Player1Time)
+//                    const Player1Time = videoPlayer1.player.currentTime()
+//                    videoPlayer2.player.currentTime(Player1Time)
                     videoPlayer2.player.play()
                 })
             })
@@ -379,7 +381,7 @@ export default {
             if (box.scrollLeft >= divList.scrollWidth) {
                 box.scrollLeft = 0
             } else {
-                box.scrollLeft++
+                box.scrollLeft+=2
             }
         },
         sendWish(statement){
@@ -405,18 +407,20 @@ export default {
             } else {
                 navigateUrl(url)
             }
-            const track = {
-                1: ()=>{logBanner()},// 点击胶囊}
-                2: ()=>{logNianJian()}, // 年检代办
-                3: ()=>{logHomeServe()}, // zaijia
-                4: ()=>{logCartXiaoDu()},
-                5: ()=>{logFCZN()},
-                6: ()=>{logCartFHZN()},
-                7: ()=>{logJGYW()},
-                8: ()=>{logKZThings()},
-                9: ()=>{logMoreNews()},
-            }[type]
-            track()
+            if(type!==undefined){
+                const track = {
+                    1: ()=>{logBanner()},// 点击胶囊}
+                    2: ()=>{logNianJian()}, // 年检代办
+                    3: ()=>{logHomeServe()}, // zaijia
+                    4: ()=>{logCartXiaoDu()},
+                    5: ()=>{logFCZN()},
+                    6: ()=>{logCartFHZN()},
+                    7: ()=>{logJGYW()},
+                    8: ()=>{logKZThings()},
+                    9: ()=>{logMoreNews()},
+                }[type]
+                track()
+            }
         },
         handleScroll(){
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
@@ -677,10 +681,12 @@ export default {
         }
     }
     .container{
-        padding: 0 15px;
+        width: 343px;
+        margin: 0 auto;
         .img-view{
             margin-top:10px;
             margin-bottom: 40px;
+            min-height:95px;
         }
     }
     .top-bar{
@@ -689,11 +695,35 @@ export default {
     }
     .topic{
         position: relative;
-        background:#FCEDE6;
-        box-shadow:0px 1px 4px 0px rgba(254,199,163,1);
-        border-radius:5px;
-        padding:25px 22px 20px 20px;
-        margin-top:42px;
+        &.topic-1{
+            height: 355px;
+            .topic-1-list{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .topic-1-item{
+                    width: 165px;
+                    height: 72px;
+                    margin-top: 8px;
+                    &.active{
+                        margin-top: 0;
+                        width: 343px;
+                        height: 115px;
+                    }
+                    .topic1-img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        &.topic-2{
+            background:#FCEDE6;
+            box-shadow:0px 1px 4px 0px rgba(254,199,163,1);
+            border-radius:5px;
+            padding:25px 22px 20px 20px;
+            margin-top:42px;
+        }
         .topic-title{
             position: absolute;
             height:34px;
