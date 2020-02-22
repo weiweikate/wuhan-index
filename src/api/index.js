@@ -63,8 +63,8 @@ Vue.use(HttpClient, {
         }
     },
     getAccessToken(config) {
-        const token = store.getters.token || '';
-        return { version: Version, token };
+        // const token = store.getters.token || '';
+        // return { version: Version, token };
     }
 });
 const http = Vue.http;

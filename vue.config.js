@@ -60,6 +60,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = {
     lintOnSave: false,
     productionSourceMap: false,
+    // baseUrl: '/vue/', //后缀与即将访问的一样
     outputDir: 'dist',
     assetsDir: 'static',
     devServer: {

@@ -13,5 +13,11 @@ export default [
         label: '获取用户加油数据',
         path: '/api/encourage/list',
         method: 'get'
+    },
+    {
+        name: 'getWeChatConfig',
+        label: '获取用户加油数据',
+        path: '/api/wx/js-config',
+        method: 'get'
     }
 ];

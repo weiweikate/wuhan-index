@@ -17,7 +17,8 @@ const IMAGES = {
     ICON_PLAYER: require('./player.png'),
     title02: require('./title02.png'),
     title01: require('./title01.png'),
-    handimg: require('./handimg.png')
+    handimg: require('./handimg.png'),
+    SHARE_IMG: require('./share-img.png'),
 };
 
 export default IMAGES;
