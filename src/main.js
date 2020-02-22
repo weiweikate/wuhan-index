@@ -22,6 +22,9 @@ import * as cloud from './utils/cloud-utils';
 import VueWechatTitle from 'vue-wechat-title';
 Vue.use(VueWechatTitle);
 
+import scroll from 'vue-seamless-scroll'
+Vue.use(scroll)
+
 import VideoPlayer from 'vue-video-player'
 import 'vue-video-player/src/custom-theme.css'
 import 'video.js/dist/video-js.css'

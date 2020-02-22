@@ -1,115 +1,121 @@
 <template>
-   <div class="home-page">
-       <div style="" class="top-img">
-           <img :src="IMAGES.handimg" alt=""/>
-           <div class="share" v-if="!isInWeChat" @click='onClickShare' ></div>
-       </div>
-       <div class="top-bar">
-           <div class="video-player-div">
-               <div>
-                   <video-player class="video-player vjs-custom-skin"
-                                 ref="videoPlayer1"
-                                 :playsinline="playsinline"
-                                 :options="playerOptions">
-                   </video-player>
-                   <div class="see-all" @click='onCustombuttonClick'></div>
-           </div>
-       </div>
-        <div style="height:102px">
-            <!--弹幕1-->
-            <div  id="box1" style="overflow:hidden;width:100%;">
-                <div id="divList1">
-                    <div class="news" v-for="(item, index) in list" :key="index">
-                        <span class="news-left"></span>
-                        <div class="news-middle" v-if="isInWeChat">
-                            <img :src="item.headImg"  class="headImg"/>
-                            {{item.nickname}} : {{ item.statement }}
-                        </div><div v-else class="news-middle"> {{ item.statement }}</div>
-                        <span class="news-right"></span>
-                    </div>
-                </div>
-                <div id="copyDiv1"></div>
-            </div>
-            <!--弹幕2-->
-            <div  id="box2" style="overflow:hidden;width:100%;">
-                <div id="divList2">
-                    <div class="news" v-for="(item, index) in list2" :key="index">
-                        <span class="news-left"></span>
-                        <div class="news-middle" v-if="isInWeChat">
-                            <img :src="item.headImg"  class="headImg"/>
-                            {{item.nickname}} : {{ item.statement }}
-                        </div>
-                        <div v-else class="news-middle"> {{ item.statement }} </div>
-                        <span class="news-right"></span>
-                    </div>
-                </div>
-                <div id="copyDiv2"></div>
-            </div>
+    <div class="home-page">
+        <div style="" class="top-img">
+            <img :src="IMAGES.handimg" alt=""/>
+            <div class="share" v-if="!isInWeChat" @click='onClickShare' ></div>
         </div>
-        <div class="fighting" @click='toggleWishView'>
+        <div class="top-bar">
+            <div class="video-player-div">
+                <div>
+                    <video-player class="video-player vjs-custom-skin"
+                                  ref="videoPlayer1"
+                                  :playsinline="playsinline"
+                                  :options="playerOptions">
+                    </video-player>
+                    <div class="see-all" @click='onCustombuttonClick'></div>
+                </div>
+            </div>
+            <div class="box">
+                <!--弹幕1-->
+                <div class="line1">
+                    <div v-if="list.length">
+                        <vue-seamless-scroll :data="list" :class-option="optionLeft" class="seamless-warp">
+                            <ul class="item">
+                                <li v-for="item in list">
+                                    <span class="news-left"></span>
+                                    <div class="news-middle" v-if="isInWeChat">
+                                        <img :src="item.headImg" class="headImg"/>
+                                        {{item.nickname}} : {{ item.statement }}
+                                    </div>
+                                    <div v-else class="news-middle"> {{ item.statement }}</div>
+                                    <span class="news-right"></span>
+                                </li>
+                            </ul>
+                        </vue-seamless-scroll>
+                    </div>
+                </div>
+                <!--弹幕2-->
+                <div v-if="list2.length">
+                    <vue-seamless-scroll :data="list2" :class-option="optionLeft" class="seamless-warp seamless-warp2">
+                        <ul class="item">
+                            <li v-for="item in list2">
+                                <span class="news-left"></span>
+                                <div class="news-middle" v-if="isInWeChat">
+                                    <img :src="item.headImg" class="headImg"/>
+                                    {{item.nickname}} : {{ item.statement }}
+                                </div>
+                                <div v-else class="news-middle"> {{ item.statement }}</div>
+                                <span class="news-right"></span>
+                            </li>
+                        </ul>
+                    </vue-seamless-scroll>
+                </div>
+            </div>
+            <div class="fighting" @click='toggleWishView'>
             <div>点我助力抗击疫情</div>
         </div>
         </div>
         <div class="container">
-            <div class="img-view" @click='jump(1,"https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2626")'>
-                <img :src="IMAGES.ICON_IMG_BANNER" />
+            <div class="img-view"
+                @click='jump(1,"https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2626")'
+            >
+                <img :src="IMAGES.ICON_IMG_BANNER"/>
             </div>
             <div class="topic topic-1">
                 <div class="topic-title">
-                    <img :src="IMAGES.title01" />
+                    <img :src="IMAGES.title01"/>
                 </div>
                 <div class="topic-1-list">
                     <div v-for="(item, index) in topic1"
                          :class="['topic-1-item',index==0? 'active':'']"
                          :key="index"
-                        @click='jump(item.type,item.url)'
+                    @click='jump(item.type,item.url)'
                     >
-                        <img class='topic1-img' :src="item.img" />
+                        <img class='topic1-img' :src="item.img"/>
                     </div>
                 </div>
             </div>
-
             <div class="topic topic-2">
                 <div class="topic-title topic-title-2">
-                    <img :src="IMAGES.title02" />
+                    <img :src="IMAGES.title02"/>
                 </div>
                 <div class="topic-item shadow"
                      v-for="(item, index) in topic3"
                      :key="index"
-                    @click='jump(item.type,item.url)'
+                     @click='jump(item.type,item.url)'
                 >
-                    <img class='topic-img-2' :src="item.img" />
+                    <img class='topic-img-2' :src="item.img"/>
                     <div>
                         <span class="icon" v-if="item.icon"></span>{{item.content}}
                     </div>
                 </div>
-                <div class="see-more" @click='jump(9,isInWeChat? "https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Feco_home_page%3FpageNo%3D70500":"pars://pars.pingan.com/mc/channel_list?channelId=C133&circleType=01&contentType=%5B%22topic%22%2C%22information%22%2C%22wiki%22%2C%22post%22%5D")'>查看更多</div>
-           </div>
-       </div>
-       <div class="logo"></div>
-        <!--底部弹窗-->
-       <van-action-sheet v-model="showFighting" title="为大家舍小家 致敬逆行英雄">
-         <div style="height:272px;overflow: scroll">
-            <div class='fighting-item'
-                 v-for="(item, index) in content"
-                 :key="index"
-                 @click="sendWish(item)"
-            >
-                   {{item}}
+                <div class="see-more" @click='jump(9,isInWeChat? "https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Feco_home_page%3FpageNo%3D70500":"pars://pars.pingan.com/mc/channel_list?channelId=C133&circleType=01&contentType=%5B%22topic%22%2C%22information%22%2C%22wiki%22%2C%22post%22%5D")'>查看更多
+                </div>
             </div>
-         </div>
-       </van-action-sheet>
-       <div class="all-video-div" v-if="show">
-           <div style="position: relative">
-               <div class="close-icon" @click='close'></div>
-               <video-player class="video-player vjs-custom-skin"
-                             ref="videoPlayer2"
-                             :playsinline="playsinline"
-                             :options="playerOptions2">
-               </video-player>
-           </div>
-       </div>
-   </div>
+        </div>
+        <!--底部弹窗-->
+        <van-action-sheet v-model="showFighting" title="为大家舍小家 致敬逆行英雄">
+            <div class="wrap">
+                <div class='fighting-item'
+                     v-for="(item, index) in content"
+                     :key="index"
+                     @click="sendWish(item)"
+                >
+                {{item}}
+                </div>
+            </div>
+        </van-action-sheet>
+        <div class="all-video-div" v-if="show">
+            <div style="position: relative">
+                <div class="close-icon" @click='close'></div>
+            <video-player class="video-player vjs-custom-skin"
+                          ref="videoPlayer2"
+                          :playsinline="playsinline"
+                          :options="playerOptions2">
+            </video-player>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -119,29 +125,17 @@ const BASE_URL = process.env.VUE_APP_BASE_TARGET;
 import IMAGES from '../assets/images';
 const isInWeChat = isWeixin()
 export default {
-    name: 'home',
-    components: {
-
-    },
-    computed: {
-        player() {
-            return this.$refs.videoPlayer.player
-        },
-        playsinline(){
-            var ua = navigator.userAgent.toLocaleLowerCase();
-            if (ua.match(/tencenttraveler/) != null || ua.match(/qqbrowse/) != null) {
-                return false
-            }else{
-                return true
-            }
-        },
-    },
-    data() {
+    data () {
         return {
+            newsList: [{
+                'title': 'A simple, seamless scrolling for Vue.js'
+            }, {
+                'title': 'A curated list of awesome things related to Vue.js'
+            }],
             IMAGES,
             userInfo:{
-               nickname:'我',
-               headImg:require('../assets/images/user-icon.png')
+                nickname:'我',
+                headImg:require('../assets/images/user-icon.png')
             },
             content:[
                 '愿你们整整齐齐去，平平安安回',
@@ -301,6 +295,28 @@ export default {
             }
         };
     },
+    computed: {
+        optionLeft () {
+            return {
+                direction: 2,
+                limitMoveNum: 2,
+                hoverStop: false,
+                clickStop:false,
+                openTouch:false
+            }
+        },
+        player() {
+            return this.$refs.videoPlayer.player
+        },
+        playsinline(){
+            var ua = navigator.userAgent.toLocaleLowerCase();
+            if (ua.match(/tencenttraveler/) != null || ua.match(/qqbrowse/) != null) {
+                return false
+            } else {
+                return true
+            }
+        }
+    },
     methods: {
         init(){
             const arr = this.encourageList
@@ -330,19 +346,12 @@ export default {
             this.$api.getEncourageList({
 
             }).then(res => {
-                    this.encourageList = res.data
-                    this.init()
-                    setTimeout(()=>{
-                        //移动速度，值越大速度越慢
-                        this.timer1 = setInterval(()=>{
-                            this.marquee(1)
-                            this.marquee(2)
-                        },1);
-                    },400)
-                })
-                .catch(res => {
-                    console.log(res);
-                });
+                this.encourageList = res.data
+                this.init()
+            })
+            .catch(res => {
+                console.log(res);
+            });
         },
         toggleWishView(){
             this.showFighting = true
@@ -356,8 +365,6 @@ export default {
                 videoPlayer1.player.pause()
                 this.$nextTick(()=>{
                     const videoPlayer2 = this.$refs.videoPlayer2
-//                    const Player1Time = videoPlayer1.player.currentTime()
-//                    videoPlayer2.player.currentTime(Player1Time)
                     videoPlayer2.player.play()
                 })
             })
@@ -370,43 +377,19 @@ export default {
                 videoPlayer1.player.play()
             })
         },
-        marquee(index=1) {
-            var box =  document.getElementById(`box${index}`);
-            var divList = document.getElementById( `divList${index}`);
-            var copyDiv = document.getElementById(`copyDiv${index}`);
-            copyDiv.innerHTML = divList.innerHTML;
-            //判断复制的信息是否到达box的最左边
-            if (box.scrollLeft >= divList.scrollWidth) {
-                box.scrollLeft = 0
-            } else {
-                box.scrollLeft++
-            }
-        },
-//        getElement(){
-//            var box =  document.getElementById(`box${index}`);
-//            var divList = document.getElementById( `divList${index}`);
-//            var copyDiv = document.getElementById(`copyDiv${index}`);
-//            copyDiv.innerHTML = divList.innerHTML;
-//            this.
-//        },
         sendWish(statement){
-            this.showFighting = false
-            clearInterval(this.timer1)
-            var box =  document.getElementById(`box1`);
-            var divList = document.getElementById( `divList1`);
-            box.scrollLeft = 50
-            this.list.splice(1,1,{
+            let list = this.shuffle([...this.list])
+            this.list.splice(0,this.list.length)
+            list.splice(1,1,{
                 statement,
                 ...this.userInfo
-
             })
-            this.timer1 = setInterval(()=>{
-                this.marquee(1)
-                this.marquee(2)
-            },1);
+            setTimeout(()=>{
+                this.list.splice(0,list.length,...list)
+                this.showFighting = false
+            },20)
         },
         jump(type,url){
-            console.log(111)
             if(isWeixin()){
                 window.location.href = url;
             } else {
@@ -492,17 +475,68 @@ export default {
         clearInterval(this.timer1)
         window.removeEventListener("scroll", this.handleScroll);
     },
-};
+}
 </script>
-<style lang="less" rel="stylesheet/less">
-    .home-page {
-        .van-hairline--bottom::after {
-            border-bottom-width: 0px;
+<style lang="less" rel="stylesheet/less" scoped>
+.seamless-warp {
+    overflow: hidden;
+    height:46px;
+    width: 100%;
+    &.seamless-warp2{
+        ul.item {
+            li{
+                margin-right: 0px;
+                margin-left: 29px;
+            }
         }
     }
-</style>
-<style lang="less" rel="stylesheet/less" scoped>
+    ul.item {
+        margin-bottom:11px;
+        white-space: nowrap;
+        li {
+            display: inline-block;
+            height:46px;
+            margin-right: 29px;
+            .news-left,.news-right{
+                width:12px;
+                height:100%;
+                display: inline-block;
+                background: url('../assets/images/00hand.png') no-repeat left center;
+                background-size:100% 100%;
+                vertical-align: top;
+            }
+            .news-left{
+                margin-right: -1px;
+            }
+            .news-middle{
+                vertical-align: top;
+                display: inline-block;
+                height:100%;
+                line-height: 46px;
+                background: url('../assets/images/00middle.png') no-repeat left center;
+                background-size:100% 100%;
+                color:#8B572A ;
+                font-size: 14px;
+            }
+            .news-right{
+                margin-left: -1px;
+                background-image: url("../assets/images/00foot.png");
+            }
+            .headImg{
+                width:30px;
+                height:30px;
+                border-radius: 50%;
+                margin-right: 6px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
 .home-page{
+    .wrap{
+        height:50vh;
+        overflow: scroll;
+    }
     .top-img{
         margin-bottom: -57px;
         position: relative;
@@ -519,65 +553,11 @@ export default {
         background: url('../assets/images/share-icon.png') no-repeat left center;
         background-size:100% 100%;
     }
-    #box1,#box2{
-        white-space: nowrap;
-        vertical-align: top;
-        #divList1,#divList2,#copyDiv1,#copyDiv2{
-            overflow: hidden;
-            margin-bottom:11px;
-            display: inline-block;
-            white-space: nowrap;
-            .news{
-                display: inline-block;
-                height:46px;
-                .news-left,.news-right{
-                    width:12px;
-                    height:100%;
-                    display: inline-block;
-                    background: url('../assets/images/00hand.png') no-repeat left center;
-                    background-size:100% 100%;
-                    vertical-align: top;
-                }
-                .news-left{
-                    margin-right: -1px;
-                }
-                .news-middle{
-                    vertical-align: top;
-                    display: inline-block;
-                    height:100%;
-                    line-height: 46px;
-                    background: url('../assets/images/00middle.png') no-repeat left center;
-                    background-size:100% 100%;
-                    color:#8B572A ;
-                    font-size: 14px;
-                }
-                .news-right{
-                    margin-left: -1px;
-                    background-image: url("../assets/images/00foot.png");
-                }
-                .headImg{
-                    width:30px;
-                    height:30px;
-                    border-radius: 50%;
-                    margin-right: 6px;
-                    vertical-align: middle;
-                }
-            }
-        }
-        #divList1,#copyDiv1{
-            .news{
-                margin-right: 29px;
-            }
-        }
-        #divList2,#copyDiv2{
-            .news{
-                margin-left: 29px;
-            }
-        }
-    }
-    #box2{
-        #divList2,#copyDiv2{
-            margin-bottom:0px;
+    .box{
+        height: 102px;
+        >div.line1{
+            height:46px;
+            margin-bottom: 11px;
         }
     }
     .video-player-div{
@@ -812,6 +792,13 @@ export default {
             text-align: center;
             margin-top:20px;
         }
+    }
+}
+</style>
+<style lang="less" rel="stylesheet/less">
+.home-page {
+    .van-hairline--bottom::after {
+        border-bottom-width: 0px;
     }
 }
 </style>
