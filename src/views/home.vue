@@ -1,7 +1,7 @@
 <template>
    <div class="home-page">
        <div style="" class="top-img">
-           <img v-lazy="IMAGES.handimg" alt=""/>
+           <img :src="IMAGES.handimg" alt=""/>
            <div class="share" v-if="!isInWeChat" @click='onClickShare' ></div>
        </div>
        <div class="top-bar">
@@ -64,7 +64,7 @@
                          :key="index"
                         @click='jump(item.type,item.url)'
                     >
-                        <img class='topic1-img' v-lazy="item.img" />
+                        <img class='topic1-img' :src="item.img" />
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                      :key="index"
                     @click='jump(item.type,item.url)'
                 >
-                    <img class='topic-img-2' v-lazy="item.img" />
+                    <img class='topic-img-2' :src="item.img" />
                     <div>
                         <span class="icon" v-if="item.icon"></span>{{item.content}}
                     </div>
@@ -245,7 +245,7 @@ export default {
                 //播放速度
                 playbackRates: [0.5, 1.0, 1.5, 2.0],
                 //如果true,浏览器准备好时开始回放。
-                autoplay: true,
+                autoplay: !isInWeChat,
                 // 默认情况下将会消除任何音频。
                 muted: false,
                 // 导致视频一结束就重新开始。
@@ -306,8 +306,6 @@ export default {
             const arr = this.encourageList
             this.list.splice(0,this.list.length,...this.shuffle(arr))
             this.list2.splice(0,this.list2.length,...this.shuffle(arr))
-            console.log(this.list)
-            console.log( this.list2)
         },
         shuffle(arr) {
             let i = arr.length;
@@ -334,13 +332,13 @@ export default {
             }).then(res => {
                     this.encourageList = res.data
                     this.init()
-                    this.$nextTick(()=>{
+                    setTimeout(()=>{
                         //移动速度，值越大速度越慢
                         this.timer1 = setInterval(()=>{
                             this.marquee(1)
                             this.marquee(2)
-                        },20);
-                    })
+                        },1);
+                    },400)
                 })
                 .catch(res => {
                     console.log(res);
@@ -381,9 +379,16 @@ export default {
             if (box.scrollLeft >= divList.scrollWidth) {
                 box.scrollLeft = 0
             } else {
-                box.scrollLeft+=2
+                box.scrollLeft++
             }
         },
+//        getElement(){
+//            var box =  document.getElementById(`box${index}`);
+//            var divList = document.getElementById( `divList${index}`);
+//            var copyDiv = document.getElementById(`copyDiv${index}`);
+//            copyDiv.innerHTML = divList.innerHTML;
+//            this.
+//        },
         sendWish(statement){
             this.showFighting = false
             clearInterval(this.timer1)
@@ -398,7 +403,7 @@ export default {
             this.timer1 = setInterval(()=>{
                 this.marquee(1)
                 this.marquee(2)
-            },20);
+            },1);
         },
         jump(type,url){
             console.log(111)
@@ -463,7 +468,12 @@ export default {
                 return
             } else {
                 this.$store.commit('user/SET_OPENID', this.openId);
-                console.log(this.$store.getters.openid)
+                this.$nextTick(() => {
+                    setTimeout(()=>{
+                        const videoPlayer1 = this.$refs.videoPlayer1
+                        videoPlayer1.player.play()
+                    },100)
+                })
                 this.getUserInfo()
                 this.getEncourageList()
             }

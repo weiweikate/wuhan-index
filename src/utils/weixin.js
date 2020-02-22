@@ -4,7 +4,7 @@ import { Base64 } from 'js-base64';
 import IMAGES from '../assets/images';
 export const initWeixin = async () => {
     try {
-        let url = window.location.origin;
+        let url = location.href.split('#')[0];
         // let url = 'https://wuhan.90hub.com/';
 
         axios.get( `${getWeChatConfig}?url=${Base64.encode(url)}`).then(datas => {
