@@ -93,6 +93,7 @@
                 </div>
             </div>
         </div>
+        <div class="logo"></div>
         <!--底部弹窗-->
         <van-action-sheet v-model="showFighting" title="为大家舍小家 致敬逆行英雄">
             <div class="wrap">
@@ -171,8 +172,6 @@ export default {
                     type:6
                 },
                 {
-//                    content:'【预防指南】做好这几件小事，抗击疫情更有安全感',
-//                    url:'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1200143',
                     content:'验车验本先别着急！ 疫情期间车驾管业务最全指南来了',
                     url:'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1230093',
                     img:IMAGES.ICON_IMG_4,
@@ -194,47 +193,51 @@ export default {
             topic1: [
                 {
                     img:IMAGES.TOPIC_ICON_1,
+                    des:"年检代办暖心升级",
                     type:2,
-                    url:isWeixin()? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%25b9%25b4%25e6%25a3%2580%25e4%25bb%25a3%25e5%258a%259e%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dAnnualInspection%2526title%253d%2525E5%2525B9%2525B4%2525E6%2525A3%252580%2525E4%2525BB%2525A3%2525E5%25258A%25259E':'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e5%b9%b4%e6%a3%80%e4%bb%a3%e5%8a%9e&url=pars%3a%2f%2fpars.pingan.com%2fhealthcircle%2fcar_plugin_with_car_manage%3ftype%3dAnnualInspection%26title%3d%25E5%25B9%25B4%25E6%25A3%2580%25E4%25BB%25A3%25E5%258A%259E'
+                    url:isInWeChat? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%25b9%25b4%25e6%25a3%2580%25e4%25bb%25a3%25e5%258a%259e%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dAnnualInspection%2526title%253d%2525E5%2525B9%2525B4%2525E6%2525A3%252580%2525E4%2525BB%2525A3%2525E5%25258A%25259E':'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e5%b9%b4%e6%a3%80%e4%bb%a3%e5%8a%9e&url=pars%3a%2f%2fpars.pingan.com%2fhealthcircle%2fcar_plugin_with_car_manage%3ftype%3dAnnualInspection%26title%3d%25E5%25B9%25B4%25E6%25A3%2580%25E4%25BB%25A3%25E5%258A%259E'
                 },
                 {
                     img:IMAGES.TOPIC_ICON_2,
                     type:11,
-                    des:"车主服务中心",
+                    des:'道路救援',
                     url:'https://m.lifeapp.pingan.com.cn/m/r-act/index.html#/micro-community/driver-club'
                 },
                 {
                     img:IMAGES.TOPIC_ICON_3,
                     type:12,
-                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e9%2581%2593%25e8%25b7%25af%25e6%2595%2591%25e6%258f%25b4%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252froadService%252findex.html'
+                    des:'保单服务',
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e4%25bf%259d%25e5%258d%2595%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fpearl%252fopen_rn%253fbundleId%253d11%2526moduleName%253dPARNPolicy'
                 },
                 {
                     img:IMAGES.TOPIC_ICON_4,
                     type:13,
-                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e4%25bf%259d%25e5%258d%2595%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fpearl%252fopen_rn%253fbundleId%253d11%2526moduleName%253dPARNPolicy'
+                    des:'违章查询',
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e8%25bf%259d%25e7%25ab%25a0%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fillegal_index'
                 },
                 {
                     img:IMAGES.TOPIC_ICON_5,
                     type:14,
-                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e8%25bf%259d%25e7%25ab%25a0%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fillegal_index'
+                    des:"油卡充值",
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e6%25b2%25b9%25e5%258d%25a1%25e5%2585%2585%25e5%2580%25bc%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252fumc-discount-cheer%252findex.html%2523%252fhome'
                 },
                 {
                     img:IMAGES.TOPIC_ICON_6,
                     type:15,
-                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e6%25b2%25b9%25e5%258d%25a1%25e5%2585%2585%25e5%2580%25bc%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252fumc-discount-cheer%252findex.html%2523%252fhome'
+                    des:"停车缴费",
+                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%2581%259c%25e8%25bd%25a6%25e6%259f%25a5%25e7%25bc%25b4%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dParkingCar%2526title%253d%2525e5%252581%25259c%2525e8%2525bd%2525a6%2525e6%25259f%2525a5%2525e7%2525bc%2525b4'
                 },
                 {
                     img:IMAGES.TOPIC_ICON_7,
                     type:16,
-                    url:'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e5%2581%259c%25e8%25bd%25a6%25e6%259f%25a5%25e7%25bc%25b4%26url%3Dpars%253a%252f%252fpars.pingan.com%252fhealthcircle%252fcar_plugin_with_car_manage%253ftype%253dParkingCar%2526title%253d%2525e5%252581%25259c%2525e8%2525bd%2525a6%2525e6%25259f%2525a5%2525e7%2525bc%2525b4'
+                    des:"车主服务中心",
+                    url:'https://m.lifeapp.pingan.com.cn/m/r-act/index.html#/micro-community/driver-club'
                 },
             ],
             show:false,
             showFighting:false,
             list:[],
             list2:[],
-            timer1:null,
-            timer2:null,
             playerOptions: {
                 //播放速度
                 playbackRates: [0.5, 1.0, 1.5, 2.0],
@@ -270,7 +273,6 @@ export default {
                 muted: false,
                 // 导致视频一结束就重新开始。
                 loop: false,
-                // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
                 preload: 'auto',
                 language: 'zh-CN',
                 // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
@@ -302,7 +304,8 @@ export default {
                 limitMoveNum: 2,
                 hoverStop: false,
                 clickStop:false,
-                openTouch:false
+                openTouch:false,
+                step:2
             }
         },
         player() {
@@ -378,9 +381,11 @@ export default {
             })
         },
         sendWish(statement){
-            let list = this.shuffle([...this.list])
+            let list = [...this.list]
+            list.splice(1,1)
+            list = this.shuffle(list)
             this.list.splice(0,this.list.length)
-            list.splice(1,1,{
+            list.splice(1,0,{
                 statement,
                 ...this.userInfo
             })
@@ -472,7 +477,6 @@ export default {
 
     },
     destroyed() {
-        clearInterval(this.timer1)
         window.removeEventListener("scroll", this.handleScroll);
     },
 }
@@ -543,6 +547,9 @@ export default {
         min-height:240px;
         background: url("../assets/images/handimg.png") no-repeat left top;
         background-size: 100% 100%;
+        >img{
+            width: 100%;
+        }
     }
     .share{
         position: absolute;
