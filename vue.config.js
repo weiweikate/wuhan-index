@@ -28,7 +28,7 @@ const cdn = {
         js: [
             'https://res.wx.qq.com/open/js/jweixin-1.6.0.js',
             'https://elis-ecocdn.pingan.com.cn/m/cdn/PALifeOpenH5/1.2/PALifeOpenH5.min.js',
-            'https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.5.min.js'
+            'https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.5.min.js',
         ]
     },
     // 生产环境
@@ -46,7 +46,7 @@ const cdn = {
             '/static/js/vuex.min.js',
             '/static/js/vant@2.2/lib/vant.min.js',
             'https://elis-ecocdn.pingan.com.cn/m/cdn/PALifeOpenH5/1.2/PALifeOpenH5.min.js',
-            'https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.5.min.js'
+            'https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.5.min.js',
             //'https://cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js'
         ]
     }

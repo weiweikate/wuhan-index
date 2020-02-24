@@ -27,6 +27,7 @@ const IMAGES = {
     TOPIC_ICON_5:require('./TOPIC_ICON_5.png'),
     TOPIC_ICON_6:require('./TOPIC_ICON_6.png'),
     TOPIC_ICON_7:require('./TOPIC_ICON_7.png'),
+    TOPIC_ICON_8:require('./TOPIC_ICON_8.png'),
 };
 
 export default IMAGES;

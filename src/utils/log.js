@@ -83,7 +83,7 @@ export const logInit = () => {
 // 进入页面
 export const logEnter = () => {
     const a = [
-        { event: "705", label: "705-20200221kjyq" }
+        { event: "705", label: "705-20200224kjyq" }
     ]
     a.map(i => {
         try {
@@ -100,8 +100,8 @@ export const logEnter = () => {
 // 点击【播放完整】
 export const logPlayVideo = () => {
     try {
-        PALifeOpenH5.addRecord("705-1", `70501-20200221kjyq`)
-        track("705-1", `70501-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-1", `70501-20200224kjyq`)
+        track("705-1", `70501-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -110,8 +110,8 @@ export const logPlayVideo = () => {
 // 点击【助力】
 export const logZhuLi = () => {
     try {
-        PALifeOpenH5.addRecord("705-2", `70502-20200221kjyq`)
-        track("705-2", `70502-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-2", `70502-20200224kjyq`)
+        track("705-2", `70502-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -120,8 +120,8 @@ export const logZhuLi = () => {
 // 点击【胶囊banner】
 export const logBanner = () => {
     try {
-        PALifeOpenH5.addRecord("705-3", `70503-20200221kjyq`)
-        track("705-3", `70503-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-3", `70503-20200224kjyq`)
+        track("705-3", `70503-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -130,28 +130,84 @@ export const logBanner = () => {
 // 点击【年检代办】
 export const logNianJian = () => {
     try {
-        PALifeOpenH5.addRecord("705-4-1", `7050401-20200221kjyq`)
-        track("705-4-1", `7050401-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-4-1", `7050401-20200224kjyq`)
+        track("705-4-1", `7050401-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
     }
 }
-// 点击【在家享服务】
-export const logHomeServe = () => {
+// 点击【道路救援】
+export const logAddressHelp = () => {
     try {
-        PALifeOpenH5.addRecord("705-4-2", `7050402-20200221kjyq`)
-        track("705-4-2", `7050402-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-4-2", `7050402-20200224kjyq`)
+        track("705-4-2", `7050402-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
     }
 }
+
+// 点击【违章查询】
+export const logViolationEnquiry = () => {
+    try {
+        PALifeOpenH5.addRecord("705-4-4", `7050404-20200224kjyq`)
+        track("705-4-4", `7050404-20200224kjyq`)
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+
+// 点击【保单服务】
+export const logBDService = () => {
+    try {
+        PALifeOpenH5.addRecord("705-4-3", `7050402-20200224kjyq`)
+        track("705-4-3", `7050403-20200224kjyq`)
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+
+// 点击【油卡充值】
+export const logOilCardRecharge = () => {
+    try {
+        PALifeOpenH5.addRecord("705-4-5", `7050405-20200224kjyq`)
+        track("705-4-5", `7050405-20200224kjyq`)
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+// 点击【停车缴费】
+export const logParkingPayment = () => {
+    try {
+        PALifeOpenH5.addRecord("705-4-6", `7050406-20200224kjyq`)
+        track("705-4-6", `7050406-20200224kjyq`)
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+
+// 点击【在家享服务】
+export const logHomeService = () => {
+    try {
+        PALifeOpenH5.addRecord("705-4-7", `7050407-20200224kjyq`)
+        track("705-4-7", `7050407-20200224kjyq`)
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+
+
 // 点击【汽车消毒视频】
 export const logCartXiaoDu = () => {
     try {
-        PALifeOpenH5.addRecord("705-5-1", `7050501-20200221kjyq`)
-        track("705-5-1", `7050501-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-5-1", `7050501-20200224kjyq`)
+        track("705-5-1", `7050501-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -161,8 +217,8 @@ export const logCartXiaoDu = () => {
 // 点击【返程防护指南】
 export const logFCZN = () => {
     try {
-        PALifeOpenH5.addRecord("705-5-2", `7050502-20200221kjyq`)
-        track("705-5-2", `7050502-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-5-2", `7050502-20200224kjyq`)
+        track("705-5-2", `7050502-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -172,8 +228,8 @@ export const logFCZN = () => {
 // 点击【私家车防护指南】
 export const logCartFHZN = () => {
     try {
-        PALifeOpenH5.addRecord("705-5-3", `7050503-20200221kjyq`)
-        track("705-5-3", `77050503-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-5-3", `7050503-20200224kjyq`)
+        track("705-5-3", `7050503-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -183,8 +239,8 @@ export const logCartFHZN = () => {
 // 点击【驾管业务】】
 export const logJGYW = () => {
     try {
-        PALifeOpenH5.addRecord("705-5-4", `7050504-20200221kjyq`)
-        track("705-5-4", `7050504-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-5-4", `7050504-20200224kjyq`)
+        track("705-5-4", `7050504-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
@@ -195,19 +251,19 @@ export const logJGYW = () => {
 // 点击【口罩事项】
 export const logKZThings= () => {
     try {
-        PALifeOpenH5.addRecord("705-5-5", `7050505-20200221kjyq`)
-        track("705-5-5", `7050505-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-5-5", `7050505-20200224kjyq`)
+        track("705-5-5", `7050505-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
     }
 }
 
-// 点击【更多】
-export const logMoreNews= () => {
+// 点击【做好这几件小事】
+export const logDoLittleThings = () => {
     try {
-        PALifeOpenH5.addRecord("705-6", `7050506-20200221kjyq`)
-        track("705-6", `7050506-20200221kjyq`)
+        PALifeOpenH5.addRecord("705-6", `70506-20200224kjyq`)
+        track("705-6", `70506-20200224kjyq`)
     }
     catch(err) {
         console.log(err)
