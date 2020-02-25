@@ -22,8 +22,7 @@ class Request {
         this.$options = opt;
 
         const httpClient = axios.create({
-            // baseURL: opt.baseUrl,
-            baseURL:"",
+            baseURL: opt.baseUrl,
             timeout: opt.timeout,
             withCredentials: opt.withCredentials,
             // 参数序列化
