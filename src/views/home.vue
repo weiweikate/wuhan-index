@@ -53,7 +53,17 @@
             </div>
         </div>
         <div class="container">
-            <div class="img-view" @click="jump(1, 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2626')">
+            <div
+                class="img-view"
+                @click="
+                    jump(
+                        1,
+                        isInWeChat
+                            ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Ftopic_detail%3FtopicId%3DT2626%26circleType%3D01'
+                            : 'pars://pars.pingan.com/mc/topic_detail?topicId=T2626&circleType=01'
+                    )
+                "
+            >
                 <img :src="IMAGES.ICON_IMG_BANNER" />
             </div>
             <div class="topic topic-1">
@@ -80,7 +90,7 @@
                         jump(
                             15,
                             isInWeChat
-                                ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Feco_home_page%3FpageNo%3D70500'
+                                ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fchannel_list%3FchannelId%3DC133%26circleType%3D01%26contentType%3D%255B%2522topic%2522%252C%2522information%2522%252C%2522wiki%2522%252C%2522post%2522%255D'
                                 : 'pars://pars.pingan.com/mc/channel_list?channelId=C133&circleType=01&contentType=%5B%22topic%22%2C%22information%22%2C%22wiki%22%2C%22post%22%5D'
                         )
                     "
@@ -176,19 +186,25 @@ export default {
                 },
                 {
                     content: '【全力防疫】疫情当下返程防护指南！',
-                    url: 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1236865',
                     img: IMAGES.ICON_IMG_2,
-                    type: 10
+                    type: 10,
+                    url: isInWeChat
+                        ? 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1236865'
+                        : 'pars://pars.pingan.com/mc/long_post_detail?longPostId=P1236865'
                 },
                 {
                     content: '【全力防疫】疫情当前，私家车防护指南！',
-                    url: 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1230061',
+                    url: isInWeChat
+                        ? 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1230061'
+                        : 'pars://pars.pingan.com/mc/long_post_detail?longPostId=P1230061',
                     img: IMAGES.ICON_IMG_3,
                     type: 11
                 },
                 {
                     content: '验车验本先别着急！ 疫情期间车驾管业务最全指南来了',
-                    url: 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1230093',
+                    url: isInWeChat
+                        ? 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1230093'
+                        : 'pars://pars.pingan.com/mc/long_post_detail?longPostId=P1230093',
                     img: IMAGES.ICON_IMG_4,
                     type: 12
                 },
@@ -196,11 +212,15 @@ export default {
                     content: '【预防指南】做好这几件小事，抗击疫情更有安全感',
                     img: IMAGES.ICON_IMG_6,
                     type: 14,
-                    url: 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1200143'
+                    url: isInWeChat
+                        ? 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1200143'
+                        : 'pars://pars.pingan.com/mc/long_post_detail?longPostId=P1200143'
                 },
                 {
                     content: '#抗击疫情|佩戴口罩的注意事项有哪些#',
-                    url: 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2521',
+                    url: isInWeChat
+                        ? 'https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-topic-detail?bizId=T2521'
+                        : 'pars://pars.pingan.com/mc/topic_detail?topicId=T2521&circleType=01',
                     img: IMAGES.ICON_IMG_5,
                     type: 13
                 }
@@ -223,29 +243,33 @@ export default {
                     img: IMAGES.TOPIC_ICON_2,
                     type: 3,
                     des: '道路救援',
-                    url:
-                        'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e9%2581%2593%25e8%25b7%25af%25e6%2595%2591%25e6%258f%25b4%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252froadService%252findex.html'
+                    url: isInWeChat
+                        ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e9%2581%2593%25e8%25b7%25af%25e6%2595%2591%25e6%258f%25b4%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252froadService%252findex.html'
+                        : 'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e9%81%93%e8%b7%af%e6%95%91%e6%8f%b4&url=https%3a%2f%2fhcz-static.pingan.com.cn%2ffin-common%2froadService%2findex.html'
                 },
                 {
                     img: IMAGES.TOPIC_ICON_3,
                     type: 4,
                     des: '保单服务',
-                    url:
-                        'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e4%25bf%259d%25e5%258d%2595%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fpearl%252fopen_rn%253fbundleId%253d11%2526moduleName%253dPARNPolicy'
+                    url: isInWeChat
+                        ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e4%25bf%259d%25e5%258d%2595%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fpearl%252fopen_rn%253fbundleId%253d11%2526moduleName%253dPARNPolicy'
+                        : 'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e4%bf%9d%e5%8d%95%e6%9f%a5%e8%af%a2&url=pars%3a%2f%2fpars.pingan.com%2fpearl%2fopen_rn%3fbundleId%3d11%26moduleName%3dPARNPolicy'
                 },
                 {
                     img: IMAGES.TOPIC_ICON_4,
                     type: 5,
                     des: '违章查询',
-                    url:
-                        'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e8%25bf%259d%25e7%25ab%25a0%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fillegal_index'
+                    url: isInWeChat
+                        ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e8%25bf%259d%25e7%25ab%25a0%25e6%259f%25a5%25e8%25af%25a2%26url%3Dpars%253a%252f%252fpars.pingan.com%252fillegal_index'
+                        : 'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e8%bf%9d%e7%ab%a0%e6%9f%a5%e8%af%a2&url=pars%3a%2f%2fpars.pingan.com%2fillegal_index'
                 },
                 {
                     img: IMAGES.TOPIC_ICON_5,
                     type: 6,
                     des: '油卡充值',
-                    url:
-                        'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e6%25b2%25b9%25e5%258d%25a1%25e5%2585%2585%25e5%2580%25bc%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252fumc-discount-cheer%252findex.html%2523%252fhome'
+                    url: isInWeChat
+                        ? 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fmc%2Fnew_hcz_auth_page%3FpluginName%3D%25e6%25b2%25b9%25e5%258d%25a1%25e5%2585%2585%25e5%2580%25bc%26url%3Dhttps%253a%252f%252fhcz-static.pingan.com.cn%252ffin-common%252fumc-discount-cheer%252findex.html%2523%252fhome'
+                        : 'pars://pars.pingan.com/mc/new_hcz_auth_page?pluginName=%e6%b2%b9%e5%8d%a1%e5%85%85%e5%80%bc&url=https%3a%2f%2fhcz-static.pingan.com.cn%2ffin-common%2fumc-discount-cheer%2findex.html%23%2fhome'
                 },
                 //                {
                 //                    img:IMAGES.TOPIC_ICON_6,
@@ -257,7 +281,9 @@ export default {
                     img: IMAGES.TOPIC_ICON_7,
                     type: 8,
                     des: '车主服务中心',
-                    url: 'https://m.lifeapp.pingan.com.cn/m/r-act/index.html#/micro-community/driver-club'
+                    url: isInWeChat
+                        ? 'https://m.lifeapp.pingan.com.cn/m/r-act/index.html#/micro-community/driver-club'
+                        : 'https://ulink.lifeapp.pingan.com.cn/index.html?url=pars%3A%2F%2Fpars.pingan.com%2Fopen_url%3Furl%3Dhttps%253A%252F%252Fm.lifeapp.pingan.com.cn%252Fm%252Fr-act%252Findex.html%2523%252Fmicro-community%252Fdriver-club-more%26type%3Djssdk'
                 }
             ],
             show: false,
